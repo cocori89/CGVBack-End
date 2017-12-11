@@ -2,7 +2,33 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 프로젝트 모든 곳에서 사용할 bean을 생성하는 곳이다.  -->
+	<!-- 데이터 베이스 연동과 관련된 bean생성 - 왜냐하면 데이터 베이스 자체가 프로젝트 전반에서 사용 할것이기 때문디ㅏ. -->
 	
-	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 데이터 메이스 연동 시 필수 - 데이터 베이스 연결 객체  -->
+	<!-- 포트 번호는 보안상 바꾸는 게 좋다. -->
+		<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		id="dataSource">
+		<property value="com.mysql.jdbc.Driver" name="driverClassName" />
+		<property value="jdbc:mysql://localhost:3306/cgv" name="url" />
+		<property value="root" name="username" />
+		<property value="12345" name="password" />
+	</bean>
+	
+	<!-- mybatise를 사용 하기 위한 bean 코드를 작성한다.  -->
+		<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+		<property name="dataSource" ref="dataSource" /> 
+		<!-- mybatis-config.xml 과 mappers파일이 같이 들어가면 안되는 이유 /*.xml 이거 때문에 같은 것으로 인식한다.  -->
+		<!-- mybatis의 설정을 하는 곳 -->
+		<property value="classpath:/mybatis/mybatis-config.xml" name="configLocation" />
+ 		<!-- mybatis의 의 sql문이 들어가는 곳 -->
+		<!-- mybatis-config.xml 과 mappers파일이 같이 들어가면 안되는 이유 /*.xml 이거 때문에 같은 것으로 인식한다.  -->
+		<property value="classpath:/mybatis/mappers/*.xml" name="mapperLocations" />
+	</bean> 
+	
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession"
+		destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean> 
 		
 </beans>

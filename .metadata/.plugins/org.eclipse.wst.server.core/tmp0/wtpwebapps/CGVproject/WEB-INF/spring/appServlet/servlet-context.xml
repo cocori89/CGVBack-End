@@ -7,16 +7,16 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
-	<!-- Enables the Spring MVC @Controller programming model -->
+	<!-- 60여가지의 어노테이션을 사용 가능하게 해주는 설정-->
 	<annotation-driven />
 
-	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<!-- 링크를 설정 할때 resources라고 입력하면 webapp디렉토리의 resources디렉토리에서 찾아서 연결하는 설정 -->
 	<resources mapping="/resources/**" location="/resources/" />
 
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!-- 뷰리졸브 해주는 설정 -->
+	<!-- Controller 에서 리턴한 뷰 이름을 가지고 실제 출력될 뷰 이름을 선택하는 설정 앞에 redirect가 붙어있으면 이설정이 적용되지 않습니다.  -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 이 설정을 뺀다면  /webapp에서 부터 출발하게 된다. 때문에  "/WEB-INF/views/" 을 붙여줘야 제대로 뷰안에 잇는 jsp파일을 찾는다-->
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
