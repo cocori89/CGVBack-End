@@ -1,0 +1,42 @@
+/*로그인*/
+
+section {
+    background-color: #fffbef;
+}
+
+.contant {
+    width: 980px;
+    margin: auto;
+}
+
+.form-horizontal {
+    width: 300px;
+    margin: auto;
+    padding: 100px 0;
+}
+
+.form-horizontal div {
+    padding: 10px 0;
+}
+
+/*회원가입*/
+.inserttable{
+/*    border: 1px solid black;*/
+    margin: auto;
+    padding: 100px;
+}
+.inserttable tr{
+	height: 20px;
+}
+
+.insert-last{
+    text-align: right;
+}
+
+/*나중에 스마트폰 설정 할때*/
+
+@media (max-width:500px) {
+    h1 {
+        display: none;
+    }
+}

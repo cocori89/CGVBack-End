@@ -1,0 +1,465 @@
+/*reset*/
+
+* {
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*헤드 부분*/
+
+header {
+    background-color: #fffbef;
+}
+
+.head {}
+
+/*최상단 서비스 바  - 로그인 앱설치등 있음*/
+
+body{
+}
+
+.main-service {
+    width: 980px;
+    margin: auto;
+
+}
+
+.main-service-left {
+    height: 30px;
+}
+
+/*--왼쪽*/
+
+.main-service-left {
+    float: left;
+}
+
+.main-service-left li {
+    float: left;
+    display: block;
+}
+
+/*--오른쪽*/
+
+.main-service-right {
+    float: right;
+}
+
+.main-service-right li {
+    float: right;
+    display: block;
+    border-right: black 1px solid;
+    font-size: 100%;
+    font-weight: bold;
+    padding-right: 10px;
+    padding-left: 10px;
+
+}
+
+.main-service-right li:nth-of-type(1) {
+    border-right: none;
+}
+
+/*>>메인 네비 게이션<<*/
+
+.main-nav-outer {
+    background-image: url("../img/bg_header.gif");
+    background-repeat: repeat-x;
+}
+
+.main-nav {
+    clear: both;
+    width: 980px;
+    margin: auto;
+    display: flex;
+}
+
+/*--CGV로고*/
+
+.main-nav h1 img {
+    flex-grow: 1;
+    padding: 35px;
+    height: 50px;
+}
+
+/*--메인 네비게이션 */
+
+.main-nav-mid {
+    flex-grow: 3;
+    text-align: center;
+}
+
+.main-nav-mid img {
+    padding-top: 29px;
+}
+
+.main-nav-mid li ul {
+    margin: -5px;
+    display: flex;
+}
+
+.main-nav-mid li li {
+    flex-grow: 1;
+}
+
+.main-nav-mid a {
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+}
+
+/*--CGV 영화 검색*/
+
+.main-nav-right {
+    padding-top: 65px;
+}
+
+
+/*>>이미지<<*/
+
+.header-banner {
+    width: 980px;
+    margin: auto;
+}
+
+
+/*------------- content 부분--------------------*/
+.contant {
+	    background-color: #fffbef;
+
+}
+.slider {
+    background-image: url(../img/bg_c_bricks.png)
+}
+
+/*>>MOVIE SELECTION<<*/
+
+.movie-selection {
+    margin: auto;
+    width: 980px;
+}
+
+.movie-selection h3 {
+    background: url(../img/bg_h3_line.jpg) repeat-x 0 50%;
+    text-align: center;
+    margin: 30px 0 15px;
+    height: 41px;
+    line-height: 41px;
+
+}
+
+.cons-movie {
+    width: 980px;
+    margin: auto
+}
+
+/*>>EVENT<<*/
+
+.event {
+    width: 980px;
+    margin: auto;
+}
+
+.event > h3 {
+    background: url(../img/bg_h3_line.jpg) repeat-x 0 50%;
+    text-align: center;
+    margin: 30px 0 15px;
+    height: 41px;
+    line-height: 41px;
+
+}
+
+/*>>탭메뉴<<*/
+
+.tab-menu {
+    width: 980px;
+    margin: auto;
+}
+
+.tab-menu > ul {
+    width: 574px;
+    display: flex;
+    margin: auto;
+}
+
+.tab-menu > ul > li:first-child {
+    padding-left: 21.7px;
+    background: url(../img/sprite_corner.png) 0 -20px no-repeat;
+    overflow: hidden;
+}
+
+.tab-menu > ul > li:last-child {
+    padding-left: 21.1px;
+    background: url(../img/ribon_right.png) right 0 no-repeat;
+    overflow: hidden;
+}
+
+.tab-menu > ul > li {
+    height: 39px;
+    background-color: #e71a0f;
+    margin: -1px;
+}
+
+.tab-menu > ul > li > a {
+    display: inline-block;
+    height: 20px;
+    font-weight: bold;
+    color: white;
+    border-right: 3px solid white;
+    margin: 10px 0 5px;
+    padding: 0 15px;
+}
+
+.tab-menu > ul > li:nth-child(6) > a {
+    border: none;
+}
+
+.sect-event ul {
+    display: flex;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    border-bottom: 3px solid #241d1e;
+    margin-bottom: 20px;
+}
+
+.sect-event ul li {
+    margin: 0 3px;
+}
+
+.cols-banner {
+    display: flex;
+}
+
+.cols-banner > div {
+    margin: 0 7px;
+}
+
+/*>>notice<<*/
+.notice-outer-outer {
+    padding-bottom: 10px;
+    border-bottom: 3px solid #222222;
+
+}
+
+.notice-outer {
+    display: flex;
+    height: 21px;
+    width: 980px;
+    overflow: hidden;
+}
+
+.notice {
+    height: 20px;
+    width: 865px;
+    padding-top: 5px;
+}
+
+.notice-outer h3 {
+    height: 20px;
+    width: 120px;
+    margin-right: 15px;
+}
+
+/*------------------------------footer 부분---------------------*/
+
+/*특수 상영관 종류*/
+footer div{
+	 background-color: #fffbef;
+}
+
+.sect-smuse {
+    margin-top: -4px;
+    height: 66px;
+    border-top: 1px #949494 solid;
+    border-bottom: 1px #949494 solid;
+}
+
+.sect-smuse ul {
+    width: 980px;
+    height: inherit;
+    margin: auto;
+    display: flex;
+}
+
+.sect-smuse li {
+    flex: 1;
+    padding: 10px 0;
+}
+
+.sect-smuse li > a {
+    display: block;
+    height: 44px;
+    background-repeat: no-repeat;
+    text-indent: 100%;
+    text-decoration: none;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.dx {
+    width: 49px;
+    background: url(../img/common_sprite_area_v4_2016.png);
+    background-position: 0 -768px;
+}
+
+.imax {
+    width: 59px;
+    background: url(../img/common_sprite_area_v4_2016.png);
+    background-position: -74px -768px;
+}
+
+.screenx {
+    width: 88px;
+    background: url(../img/common_sprite_area_v4_2016.png);
+    background-position: -159px -768px;
+}
+
+.spherex {
+    width: 76px;
+    background: url(../img/common_sprite_area_v4_2016.png);
+    background-position: -273px -768px;
+}
+
+.soundx {
+    width: 72px;
+    background: url(../img/common_sprite_area_v4_2016.png);
+    background-position: -379px -768px;
+}
+
+.tempur-cinema {
+    width: 55px;
+    background: url(../img/common_sprite_area_v4_2016.png);
+    background-position: -480px -768px;
+}
+
+.gold-class {
+    width: 84px;
+    background: url(../img/common_sprite_area_v4_2016.png);
+    background-position: -567px -768px;
+}
+
+.cine-de-chef {
+    width: 89px;
+    background: url(../img/common_sprite_area_v4_2016.png);
+    background-position: -679px -768px;
+}
+
+.private-cinema {
+    width: 86px;
+    background: url(../img/common_sprite_area_v4_2016.png);
+    background-position: 0 -826px;
+}
+
+.cinekids {
+    width: 70px;
+    background: url(../img/common_sprite_area_v4_2016.png);
+    background-position: -113px -826px;
+}
+
+/*회사 소개*/
+
+.policy ul {
+    width: 980px;
+    margin: auto;
+    display: flex;
+    font-family: 'NanumBarunGothicBold', '맑은 고딕', '돋움', Dotum, sans-serif;
+    text-decoration: none;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 12px;
+    padding-top: 28px;
+}
+
+.policy li {
+    border-right: 1px solid #949494;
+}
+
+.policy li:last-child {
+    border: none;
+}
+
+.policy li a {
+    display: block;
+    color: #444444;
+    padding: 0 10px;
+    letter-spacing: -1px;
+}
+
+/*회사 소개 및 정보*/
+.com-cinfo {
+	display: flex;
+    padding-top: 20px;
+    width: 980px;
+    margin: auto;
+}
+.logo {
+    width: 90px;
+    height:43px;
+    margin-right: 20px;
+    background-image: url(../img/common_sprite_area_v4_2016.png);
+    background-repeat: no-repeat;
+    background-position: -145px -319px;
+}
+.address {
+    font-family: 'NanumBarunGothic', '맑은 고딕', '돋움', Dotum, sans-serif;
+	font-size: 12px;
+    color: #555555;
+    line-height: 1.6em;
+}
+
+.share-outer{
+    height: 50px;
+    display: inline-block;
+    margin-left: 5px; 
+}
+
+.share a{
+    display: inline-block;
+	width: 34px;
+    height: 34px;
+    margin-left: 2px;
+}
+.facebook {
+    background-image: url(../img/common_sprite_area_v4_2016.png);
+    background-repeat: no-repeat;
+    background-position: -509px -429px;
+}
+.twitter {
+	background-image: url(../img/common_sprite_area_v4_2016.png);
+    background-repeat: no-repeat;
+    background-position: -551px -429px;
+}
+.instagram {
+	background-image: url(../img/common_sprite_area_v4_2016.png);
+    background-repeat: no-repeat;
+    background-position:-593px -429px;
+}
+.share form{
+	display: inline-block;
+}
+.share select{
+    height: 34px;
+
+}
+.copyright {
+	font-family: 'NanumBarunGothic', '맑은 고딕', '돋움', Dotum, sans-serif;
+	font-size: 12px;
+    color: #555555;
+}
+.footer-bottom {
+    display: inline-block;
+	background-image: url(../img/bg_footer_com.gif);
+    height: 147px;
+    width: 100%;
+    background-position: 0 -134px;
+}
+
+
+/*나중에 스마트폰 설정 할때*/
+@media (max-width:500px) {
+    h1 {
+        display: none;
+    }
+}
