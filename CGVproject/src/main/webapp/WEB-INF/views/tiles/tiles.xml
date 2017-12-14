@@ -13,7 +13,7 @@
 			value="/WEB-INF/views/tiles/layout/footer.jsp" />
 	</definition>
 	<!-- 이하의 페이지들은 등록할때마다 타일즈를 사용 하는 것이다.-->
-	<!-- Home Page -->
+	<!-- 액션 태그 로 모든 페이지가 모일수 있도록 한다.  -->
 	<definition name="*" extends="base-definition">
 		<put-attribute name="section" value="/WEB-INF/views/{1}.jsp" />
 	</definition>
