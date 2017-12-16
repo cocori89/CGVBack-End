@@ -7,15 +7,19 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/content.css">
 </head>
 <body>
+
         <section>
             <div class="contant">
                 
-                <form class="form-horizontal">
+                <form class="form-horizontal" method="post" action="login">
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail3" placeholder="아이디를 입력하세요" size="30">
+                        <input type="text" class="form-control" id="inputEmail3" placeholder="아이디를 입력하세요" size="30" name="id">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="inputPassword3" placeholder="패스워드를 입력학세요" size="30">
+                        <input type="password" class="form-control" id="inputPassword3" placeholder="패스워드를 입력학세요" size="30" name="pw">
+                    </div>
+                    <div>
+                    	<h3>${msg }</h3>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">

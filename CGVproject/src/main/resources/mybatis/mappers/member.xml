@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+	
+	<!-- 맴버 등록 -->
+	<!-- 회원등급은 일단은 기본적으로  일반 등급 - 7 
+		0 - 총관리자 
+		1 - 중간 관리자 [직원]
+		2~7 - 등급별 회원
+		8 - 비회원
+		9 - 탈퇴 인원
+	 -->
+	<insert id="memberInsert" parameterType="kr.co.cgv.domain.MemberVO">
+		insert into member	value(#{member_id},#{member_pw},#{member_name},#{member_phone},#{member_addr},"7",
+		#{member_email},NOW())
+	</insert>
+	
+	<!-- 회원정보 수정시 정보 불러 오기 -->
+	<select id="memberSelect" parameterType="java.lang.String" resultType="kr.co.cgv.domain.MemberVO">
+		select *
+		from member
+		where member_id = #{member_id}
+	</select>
+
+	<!-- 회원 정보 수정  -->
+	<update id="memberUpdate" parameterType="kr.co.cgv.domain.MemberVO">
+		update member
+		set member_pw=#{member_pw},member_phone=#{member_phone},member_addr=#{member_addr},member_email=#{member_email}
+		where member_id=#{member_id}
+	</update>
+	
+	<!-- 회원 정보 탈퇴 -->
+	<update id="memberDelete" parameterType="java.lang.String">
+		update member
+		set member_rating="9"
+		where member_id=#{member_id}
+	</update>
+	
+
+	<!-- 로그인 -->
+	<select id="memberLogin" parameterType="java.util.Map" resultType="kr.co.cgv.domain.MemberVO">
+		select *
+		from member
+		where member_id = #{id} and member_pw = #{pw}
+	</select>
+	
+	
+	
+</mapper>

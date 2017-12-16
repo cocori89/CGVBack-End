@@ -40,7 +40,7 @@
 								alt="instarApp"></a></li>
 					</ul>
 					<ul class="main-service-right">
-						<li><a href="#">MyCGV</a></li>
+						<li><a href="mypage">MyCGV</a></li>
 						<li><a href="memberInsert">회원가입</a></li>
 						<li><a href="login">로그인</a></li>
 					</ul>
