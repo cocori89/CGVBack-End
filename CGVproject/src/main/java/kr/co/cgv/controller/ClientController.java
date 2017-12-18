@@ -1,5 +1,7 @@
 package kr.co.cgv.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -8,27 +10,34 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.cgv.domain.MemberVO;
+import kr.co.cgv.domain.NoticeVO;
 import kr.co.cgv.service.MemberService;
+import kr.co.cgv.service.NoticeService;
 
 @Controller
 public class ClientController {
 
 	@Autowired
 	private MemberService memberService;
-
+	@Autowired
+	private NoticeService noticeService;
+	
 	// index페이지 이동
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index() {
-
+	public String index(Model model) {
+		List<NoticeVO> noticeVO= noticeService.noticeSelectIndex();
+		model.addAttribute("noticeVO", noticeVO);
 		return "index";
 	}
 
 	@RequestMapping(value = "index", method = RequestMethod.GET)
-	public String indexHome() {
-
+	public String indexHome(Model model) {
+		List<NoticeVO> noticeVO = noticeService.noticeSelectIndex();
+		model.addAttribute("noticeVO", noticeVO);
 		return "index";
 	}
 
@@ -110,12 +119,51 @@ public class ClientController {
 		}
 	}
 	
-	
 	// mypage(마이페이지) 페이지로 이동
 	@RequestMapping(value = "mypage", method = RequestMethod.GET)
 	public String mypage() {
 		return "mypage";
 	}
 	
+	//공지사항 페이지 이동 
+	@RequestMapping(value = "noticeList", method = RequestMethod.GET)
+	public String noticeList(Model model) {
+		List<NoticeVO> noticeVO = noticeService.noticeSelectList(1);
+		int noticeCount = noticeService.noticeCount();
+		model.addAttribute("noticeVO", noticeVO);
+		model.addAttribute("noticeCount", noticeCount);
+		
+		// 페이징 처리 
+		int pageBlock = noticeService.noticePageNum();
+		model.addAttribute("pageBlock", pageBlock);
+		model.addAttribute("start", 0);// 첫시작이기 때문에 
+		
+		return "noticeList";
+	}
+	
+	//공지사항 페이지 번호 클릭시 작동 이동 
+	@RequestMapping(value = "noticeListPage", method = RequestMethod.GET)
+	public String noticeListPageint(@RequestParam("listNum")int listNum, @RequestParam("pageStartNum")int pageStartNum, Model model) {
+		List<NoticeVO> noticeVO = noticeService.noticeSelectList(listNum*10-10);
+		int noticeCount = noticeService.noticeCount();
+		model.addAttribute("noticeVO", noticeVO);
+		model.addAttribute("noticeCount", noticeCount);
+		
+		// 페이징 처리 
+		int pageBlock = noticeService.noticePageNum();
+		model.addAttribute("pageBlock", pageBlock);
+		model.addAttribute("start", pageStartNum);// 첫시작이기 때문에 
+		
+		return "noticeList";
+	}
 
+	// 공지 사항 상세보기 
+	@RequestMapping(value = "noticeContent", method = RequestMethod.GET)
+	public String noticeContent(@RequestParam("notice_code")int notice_code, Model model) {
+		NoticeVO noticeVO = noticeService.noticeSelectContent(notice_code);
+		int notice_hit =Integer.parseInt(noticeVO.getNotice_hit()) + 1;
+		noticeService.noticeUpdateHit(notice_code);
+		model.addAttribute("notice", noticeVO);
+		return "noticeContent";
+	}
 }

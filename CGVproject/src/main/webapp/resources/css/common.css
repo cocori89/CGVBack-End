@@ -79,20 +79,19 @@ body{
 /*--CGV로고*/
 
 .main-nav h1 img {
-    flex-grow: 1;
-    padding: 35px;
+    flex-grow: 1 ; 
     height: 50px;
 }
 
 /*--메인 네비게이션 */
 
 .main-nav-mid {
-    flex-grow: 3;
+    flex-grow: 1;
     text-align: center;
 }
 
 .main-nav-mid img {
-    padding-top: 29px;
+    margin-top: -10px; 
 }
 
 .main-nav-mid li ul {
@@ -105,15 +104,17 @@ body{
 }
 
 .main-nav-mid a {
+    display: inline-block;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     color: black;
+    margin-bottom: 21px;
 }
 
 /*--CGV 영화 검색*/
 
 .main-nav-right {
-    padding-top: 65px;
+    padding-top: 55px;
 }
 
 
@@ -152,7 +153,8 @@ body{
 
 .cons-movie {
     width: 980px;
-    margin: auto
+    margin: auto;
+    display: flex;
 }
 
 /*>>EVENT<<*/

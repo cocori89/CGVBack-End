@@ -5,12 +5,8 @@
 <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.method.annotation.UriComponentsBuilderMethodArgumentResolver"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.view.UrlBasedViewResolver"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.view.tiles3.TilesView"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-<fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
 <fullyQualifiedTypeName name="org.apache.tiles.request.Request"/>
 <fullyQualifiedTypeName name="kr.co.cgv.dao.MemberDao"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="org.w3c.dom.Attr"/>
@@ -25,4 +21,15 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="kr.co.cgv.dao.NoticeDao"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="kr.co.cgv.service.NoticeService"/>
+<fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+<fullyQualifiedTypeName name="kr.co.cgv.domain.NoticeVO"/>
 </qualifiedTypeNameHistroy>

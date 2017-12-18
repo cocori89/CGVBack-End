@@ -32,6 +32,58 @@ section {
 .insert-last{
     text-align: right;
 }
+/*공지 사항*/
+.cols-content {
+	display: flex;
+}
+
+.sub {
+	flex-grow: 1;
+}
+.sub a{
+    display: inline-block;
+	text-decoration: none;
+    color: #22225e;
+    height: 34px;
+    padding-left: 5px;
+    font-family: 'NanumBarunGothicBold', '맑은 고딕', '돋움', Dotum, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 34px;
+    width: 155px;
+}
+.sub a:hover{
+	background: #e71a0f;
+    color: #f9fcf0;
+}
+/*클릭후에 변화는 자바스크립트로 할것*/
+
+.col-detail {
+	flex-grow: 1;
+}
+.c_tab_wrap ul{
+	display: flex;
+}
+.c_tab_wrap ul li{
+	padding: 10px;
+}
+.search_result {
+	padding: 15px;
+}
+.paging{
+    margin: auto;
+    width: 300px;
+}
+.paging ul{
+	display: flex;
+}
+.paging ul li a{
+    padding: 0 10px;
+}
+/*공지사항 상세정보*/
+.btn-gonoticelist{
+    text-align: right;
+}
 
 /*나중에 스마트폰 설정 할때*/
 

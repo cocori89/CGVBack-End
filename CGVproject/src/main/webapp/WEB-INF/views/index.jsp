@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -90,18 +91,14 @@
                         </div>
                         <!--공지사항을 나중에 제목만 리스트롤 뽑아 낼것임 공지 사항등록 한것중에 필요 한것들만 -->
                         <div class="notice-outer-outer">
-
                             <div class="notice-outer">
-                                <h3>
-                                    <img src="${pageContext.request.contextPath}/resources/img/ico_notice.png" alt=""> 공지사항
-                                </h3>
-
+                                     <p><img src="${pageContext.request.contextPath}/resources/img/ico_notice.png" alt=""> 공지사항&nbsp;</p>
                                 <div class="notice">
                                     <ul>
-                                        <li>notice-subject-test1</li>
-                                        <li>notice-subject-test2</li>
-                                        <li>notice-subject-test3</li>
-                                        <li>notice-subject-test4</li>
+                                    	
+ 	                                   <c:forEach var="noticeVO" items="${noticeVO}">
+ 	                                   		<li><a href="noticeList">${noticeVO.notice_title }</a></li>
+ 	                                   </c:forEach>
                                     </ul>
                                 </div>
                             </div>

@@ -17,7 +17,6 @@
 <!-- End WOWSlider.com HEAD section -->
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery.vticker-min.js"></script>
-
 </head>
 
 <body>
