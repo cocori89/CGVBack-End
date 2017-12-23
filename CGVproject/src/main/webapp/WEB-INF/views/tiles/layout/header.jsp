@@ -47,7 +47,7 @@
 				<div class="main-nav-outer">
 					<div class="main-nav">
 						<h1>
-							<a href="index.html"><img
+							<a href="index"><img
 								src="${pageContext.request.contextPath}/resources/img/cgvlogo.png"
 								alt=""></a>
 						</h1>

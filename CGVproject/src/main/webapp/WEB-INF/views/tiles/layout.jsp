@@ -18,7 +18,9 @@
     <!--bootstrap-->
 </head>
 <body>
-	<header id="header">
+<c:choose>
+ <c:when test="${admin==null}">
+ 		<header id="header">
 		<tiles:insertAttribute name="header"/>
 	</header>
 	<section id="section">
@@ -27,5 +29,12 @@
 	<footer id="footer">
 		<tiles:insertAttribute name="footer"/>
 	</footer>
+ </c:when>
+ <c:otherwise>
+	<section id="section">
+		<tiles:insertAttribute name="section"/>
+	</section>
+ </c:otherwise>
+</c:choose>
 </body>
 </html>

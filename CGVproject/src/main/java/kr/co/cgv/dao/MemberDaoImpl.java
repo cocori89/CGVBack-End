@@ -1,5 +1,6 @@
 package kr.co.cgv.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -42,6 +43,31 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public int memberDelete(String member_id) {
 		return sqlSession.update("member.memberDelete", member_id);
+	}
+
+	
+	/* 관리자 */	
+	
+	//관리자 회원정보 요청
+	@Override
+	public List<MemberVO> memberSelectAll() {
+		return sqlSession.selectList("member.memberSelectAll");
+	}
+
+	// 관리자 회원정보 수정
+	@Override
+	public int memberUpdateAdmin(MemberVO memberVO) {
+
+		System.out.println(memberVO.getMember_id());
+		System.out.println(memberVO.getMember_pw());
+		System.out.println(memberVO.getMember_name());
+		System.out.println(memberVO.getMember_phone());
+		System.out.println(memberVO.getMember_addr());
+		System.out.println(memberVO.getMember_rating());
+		System.out.println(memberVO.getMember_email());
+		System.out.println(memberVO.getMember_date());
+		
+		return sqlSession.update("member.memberUpdateAdmin",memberVO);
 	}
 
 }

@@ -28,16 +28,18 @@ public class ClientController {
 	
 	// index페이지 이동
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index(Model model) {
+	public String index(Model model,HttpSession session) {
 		List<NoticeVO> noticeVO= noticeService.noticeSelectIndex();
 		model.addAttribute("noticeVO", noticeVO);
+		session.removeAttribute("admin");
 		return "index";
 	}
 
 	@RequestMapping(value = "index", method = RequestMethod.GET)
-	public String indexHome(Model model) {
+	public String indexHome(Model model, HttpSession session) {
 		List<NoticeVO> noticeVO = noticeService.noticeSelectIndex();
 		model.addAttribute("noticeVO", noticeVO);
+		session.removeAttribute("admin");
 		return "index";
 	}
 
@@ -166,4 +168,11 @@ public class ClientController {
 		model.addAttribute("notice", noticeVO);
 		return "noticeContent";
 	}
+	
+	//영화 정보 
+	@RequestMapping(value = "movie", method = RequestMethod.GET)
+	public String movie() {
+		return "movie";
+	}
+	
 }

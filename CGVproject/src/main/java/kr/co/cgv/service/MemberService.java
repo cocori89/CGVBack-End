@@ -1,5 +1,7 @@
 package kr.co.cgv.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.tiles.request.Request;
@@ -16,4 +18,10 @@ public interface MemberService {
 	public int memberDelete(String member_id);//회원 정보 탈퇴
 	
 	public MemberVO memberLogin(HttpServletRequest request);// 회원 로그인 
+	
+	
+	//관리자 
+	public List<MemberVO> memberSelectAll();//관리자가 모든 회원 정보 요청
+	
+	public int memberUpdateAdmin(HttpServletRequest request);// 관리가자 회원 정보 수정 요청
 }

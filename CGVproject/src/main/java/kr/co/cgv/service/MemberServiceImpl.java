@@ -1,6 +1,7 @@
 package kr.co.cgv.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -137,6 +138,33 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int memberDelete(String member_id) {
 		return memberDao.memberDelete(member_id);
+	}
+
+	
+		/*관리자*/
+	
+	//관리자가 회원정보 요청
+	@Override
+	public List<MemberVO> memberSelectAll() {
+		return memberDao.memberSelectAll();
+	}
+
+
+	@Override
+	public int memberUpdateAdmin(HttpServletRequest request) {
+		MemberVO memberVO = new MemberVO();
+		
+		memberVO.setMember_id(request.getParameter("id"));
+		memberVO.setMember_pw(request.getParameter("pw"));
+		memberVO.setMember_name(request.getParameter("name"));
+		memberVO.setMember_phone(request.getParameter("phone"));
+		memberVO.setMember_addr(request.getParameter("addr"));
+		memberVO.setMember_rating(request.getParameter("rating"));
+		memberVO.setMember_email(request.getParameter("email"));
+		memberVO.setMember_date(request.getParameter("date"));
+
+		
+		return memberDao.memberUpdateAdmin(memberVO);
 	}
 
 }

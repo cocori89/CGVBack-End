@@ -48,5 +48,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
+	<!-- 관리자 -->
+	<!-- 관리자의 요청으로 회원 정보의 모든 요청 -->
+	<select id="memberSelectAll" resultType="kr.co.cgv.domain.MemberVO">
+		select *
+		from member
+	</select>
+	
+	<!-- 관리자가 회원정보 수정 (더 많은 정보를 수정) -->
+	<update id="memberUpdateAdmin" parameterType="kr.co.cgv.domain.MemberVO">
+		update member
+		set member_pw = #{member_pw}, member_name = #{member_name}, member_phone = #{member_phone},
+		    member_addr = #{member_addr}, member_rating = #{member_rating},
+		    member_email = #{member_email}, member_date = #{member_date}
+		where member_id = #{member_id}
+	</update>
 	
 </mapper>
