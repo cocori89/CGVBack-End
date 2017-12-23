@@ -1,0 +1,177 @@
+section{
+    background-color: #fffbef;
+}
+.contant {
+	width: 980px;
+    margin: auto;
+}
+/*무비차트*/
+.tit-heading-wrap {
+	border-bottom: solid 3px #241d1e;
+}
+.tit-heading-wrap h3{
+	margin: 0;
+    padding-top: 30px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 34px;
+}
+.submenu {
+    text-align: right;
+    padding: 0px;
+}
+.submenu ul{
+    display: inline-flex;
+}
+.submenu li{
+	padding-right: 20px;
+}
+.submenu li a{
+    color: #666666;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.sect-sorting div{
+    display: inline-block;
+    padding: 20px;
+    
+}
+
+/*영화 실제 정보*/
+.sect-movie-chart ol{
+    display: flex;
+    flex-flow: row wrap;
+}
+.sect-movie-chart ol li{
+    flex: 1;
+    padding: 30px;
+    text-align: center;
+	border-bottom: solid 3px #241d1e;
+}
+
+.box-image {
+	display: inline-flex;
+    align-items: center;
+    flex-flow: column;
+}
+.box-image img{
+    padding: 5px;    
+}
+
+.rank {
+    display: inline-block;
+    border: 4px solid #000000;
+    background: #e71a0f;
+    color: #ffffff;
+    width: 185.017px;
+    height: 27.986px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.chart-ad-bottom {
+	padding: 30px 0;
+}
+
+.sect-ad-benner {
+    padding: 50px 0;
+}
+.sect-ad-benner img{
+    width: 980px;
+}
+
+/*인기 트레잉러*/
+
+.col-rank-trailer {
+	display: flex;
+    flex-flow: row wrap;
+    background: #252121;
+    margin-bottom: 20px;
+    
+}
+.col-rank-trailer h3{
+	color: #eee1b9;
+    font-size: 15px;
+}
+.col-rank-trailer>div{
+    flex-grow: 1;
+}
+.col-rank-trailer>ul{
+    flex-grow: 1;
+    text-align: center;
+
+}
+.col-rank-trailer>ul>li{
+    margin:  30px 0;
+    display: flex;
+    flex-grow: 1;
+}
+.col-rank-trailer a{
+	color: #666666;
+}
+
+.sect-popular-trailer{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    padding: 30px;
+    
+}
+.sect-popular-trailer a{
+	color: #666666;
+}
+.sect-popular-trailer img{
+	width: 90px;
+    height: 126.48px;
+    padding: 10px;
+}
+
+.col-rank-search li{
+    margin: 10px 5px;
+    list-style-type: decimal !important;
+}
+
+.col-rank-search li:hover a{
+    color: white;
+}
+
+/*>>>>>>>>>>>>>영화 상세 페이지 <<<<<<<<<<<<<<*/
+.movie-tit h2{
+    font-weight: bold;
+    border-bottom: solid 4px;
+    padding: 10px 0;
+    
+}
+.movie-info {
+    margin: 30px 10px;
+    display: flex;
+}
+
+.movie-info-poster{
+    flex-grow: 1;
+}
+
+.movie-info-content{
+    flex-grow: 20;
+}
+
+.movie-info-content p{
+    padding-bottom: 10px;
+    border-bottom: solid 1px #d9d6c8;
+}
+.movie-info-content table td{
+    color: #333333;
+    font-weight: bold;
+}
+.movie-info-content button{
+    margin-top: 20px;
+}
+
+
+/*아직 손봐야할 구간*/
+.starpint table td{
+	border: solid;
+}
+

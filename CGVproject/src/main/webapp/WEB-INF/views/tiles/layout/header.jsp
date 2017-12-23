@@ -65,7 +65,7 @@
 									<ul>
 										<!--공간확보-->
 										<li></li>
-										<li><a href="#">영화</a></li>
+										<li><a href="movie">영화</a></li>
 										<li><a href="#">예매</a></li>
 										<li><a href="#">극장</a></li>
 										<li><a href="#">이벤트&amp;컬처</a></li>
