@@ -1,1 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 영화 정보 -->
+<mapper namespace="movie">
+	<!-- 클라이언트 -->
+
+	<!-- 관리자  -->
+	<!-- 관리자가 영화정보 입력 -->
+	<insert id="movieInsert" parameterType="kr.co.cgv.domain.MovieVO">
+		insert into movie (movie_title, movie_director, movie_producer, movie_acter, movie_genre,movie_plot,
+		                  movie_grade, movie_time, movie_nation, movie_site, movie_date, movie_poster, movie_state)
+		values (#{movie_title}, #{movie_director}, #{movie_producer}, #{movie_acter}, #{movie_genre},#{movie_plot},
+		      #{movie_grade}, #{movie_time}, #{movie_nation}, #{movie_site}, #{movie_date}, #{movie_poster}, #{movie_state})              
+	</insert>
+	
+	<!-- 관리자가 영화정보 가져오기 -->
+	<select id="movieSelectAll" resultType="kr.co.cgv.domain.MovieVO">
+		select *
+		from movie
+		order by movie_date asc
+	</select>
+	
+	<!-- 관리자가 영화 정보 영화 제목으로 검색하여 정렬 -->
+	<select id="movieSelectTitle" parameterType="java.lang.String" resultType="kr.co.cgv.domain.MovieVO">
+		select *
+		from movie
+		where movie_title like concat('%',#{title},'%')
+		order by movie_date asc
+	</select>
+	
+	<!-- 관리자가 영화정보 수정  (코드를 참고 해서 가겨 오기)  -->
+	<select id="movieSelectCode" parameterType="java.lang.String" resultType="kr.co.cgv.domain.MovieVO">
+		select *
+		from movie
+		where movie_code = #{movie_code}
+	</select>
+	
+</mapper>

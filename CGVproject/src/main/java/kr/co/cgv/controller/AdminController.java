@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.cgv.domain.MemberVO;
+import kr.co.cgv.domain.MovieVO;
 import kr.co.cgv.domain.NoticeVO;
 import kr.co.cgv.service.MemberService;
+import kr.co.cgv.service.MovieService;
 import kr.co.cgv.service.NoticeService;
 
 //이곳을 단순 페이지 이동만 최대한 만든다. 
@@ -29,6 +31,9 @@ public class AdminController {
 	
 	@Autowired
 	NoticeService noticeService;
+	
+	@Autowired
+	MovieService movieService;
 	
 	//임시로 index
 	@RequestMapping(value = "admin/adIndex", method =RequestMethod.GET )
@@ -77,6 +82,26 @@ public class AdminController {
 		return "admin/adNoticeUpdate";
 	}
 	
+	//관리자 영화 정보 관리 페이지 이동
+	@RequestMapping(value = "admin/adMovie", method = RequestMethod.GET)
+	public String adMovie(Model model){
+		List<MovieVO> movieVO = movieService.movieSelectAll();
+		model.addAttribute("movieVO", movieVO);
+		return "admin/adMovie";
+	}
+	
+	//관리자 영화 정보 등록 페이지 이동
+	@RequestMapping(value = "admin/adMovieInsert", method = RequestMethod.GET)
+	public String adMovieInsert(Model model){
+		return "admin/adMovieInsert";
+	}
+	//관리자 영화 정보 수정 페이지 이동
+	@RequestMapping(value = "admin/adMovieUpdate", method = RequestMethod.GET)
+	public String adMovieUpdate(@RequestParam("movie_code")String movie_code, Model model){
+		MovieVO movieVO = movieService.movieSelectCode(movie_code);
+		model.addAttribute("movie", movieVO);
+		return "admin/adMovieUpdate";
+	}
 	
 	
 }

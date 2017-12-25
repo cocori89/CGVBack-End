@@ -40,6 +40,18 @@
 	</beans:bean>
 
 	<context:component-scan base-package="kr.co.cgv" />
+	
+	<!-- 파일 업로드를 하기 위한 빈추가 -->
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 최대 업로드 파일 크기 설정(단위 : byte) -->
+		<!-- 일단은 이미지 파일 이기 때문에 최대한 적게 만든다.  -->
+		<beans:property name="maxUploadSize" value="52428800" /> <!-- 50MB -->
+		<!-- 메모리에 보관 있는 최대 파일 크기 설정 (단위 : byte) -->
+		<beans:property name="maxInMemorySize" value="1048576" /> <!-- 1MB -->
+		<!-- 요청을 파싱 할때 케릭터셋 을 지정 하지 않았을 경우 사용 하는 인코딩 값  -->
+		<beans:property name="defaultEncoding" value="utf-8"/>
+	</beans:bean>
 
 
 

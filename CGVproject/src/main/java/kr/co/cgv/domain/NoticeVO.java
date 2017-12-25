@@ -1,15 +1,15 @@
 package kr.co.cgv.domain;
-
+//공지사항 DTO
 public class NoticeVO {
 
-	private String notice_code;
-	private String notice_kind;
-	private String notice_writer;
-	private String notice_date;
-	private String notice_title;
-	private String notice_content;
-	private String notice_use;
-	private String notice_hit;
+	private String notice_code;// 코드
+	private String notice_kind;// 분류
+	private String notice_writer;// 작성자
+	private String notice_date;// 글 작성 시간
+	private String notice_title;// 제목
+	private String notice_content;// 내용
+	private String notice_use;// 중요공자 사용 유무
+	private String notice_hit;// 조회수
 
 
 	@Override

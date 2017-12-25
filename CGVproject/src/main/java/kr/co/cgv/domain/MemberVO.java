@@ -1,7 +1,7 @@
 package kr.co.cgv.domain;
 
 
-//회원 정보 
+//회원 정보  DTO
 public class MemberVO {
 	private String member_id;//아이디
 	private String member_pw;//비밀번호

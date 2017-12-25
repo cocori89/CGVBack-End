@@ -6,21 +6,21 @@
 <head>
     <meta charset="UTF-8">
     <title>관리 시스템 로그인 </title>
-    <link rel="icon" href="img/cjcl.png">
+    <link rel="icon" href="${pageContext.request.contextPath }/resources/img/cjcl.png">
 </head>
 
 <body>
-    <h1><a href="adIndex"><img src="img/cgvlogo.png" alt="로그 이미지"></a></h1>
+    <h1><a href="adIndex"><img src="${pageContext.request.contextPath }/resources/img/cgvlogo.png" alt="로그 이미지"></a></h1>
     <h2>영화 정보 등록</h2>
-    <form action="adMoviceInsert" method="post">
+    <form action="adMovieInsert" method="post" enctype="multipart/form-data">
         <table>
            <tr>
                <td>영화 상태</td>
                <td>
                    <select name="state" id="">
-                       <option value="">상영전</option>
-                       <option value="">상영중</option>
-                       <option value="">상영종료</option>
+                       <option value="상영전">상영전</option>
+                       <option value="상영중">상영중</option>
+                       <option value="상영종료">상영종료</option>
                    </select>
                </td>
            </tr>
@@ -47,7 +47,7 @@
             <tr>
                 <td>영화 등급</td>
                 <td>
-                    <select name="" id="">
+                    <select name="grade" id="">
                         <option value="전체관람가">전체관람가</option>
                         <option value="12세관람가">12세이상관람가</option>
                         <option value="15세관람가">15세이상관람가</option>
@@ -62,6 +62,10 @@
             <tr>
                 <td>국가</td>
                 <td><input type="text" name="nation"></td>
+            </tr>
+             <tr>
+                <td>장르</td>
+                <td><input type="text" name="genre"></td>
             </tr>
             <tr>
                 <td>영화사이트</td>

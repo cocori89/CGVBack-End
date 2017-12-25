@@ -1,21 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>관리 시스템 로그인 </title>
-    <link rel="icon" href="img/cjcl.png">
+    <link rel="icon" href="${pageContext.request.contextPath }/resources/img/cjcl.png">
 </head>
 <body>
- <h1><a href="adIndex"><img src="img/cgvlogo.png" alt="로그 이미지"></a></h1>
+ <h1><a href="adIndex"><img src="${pageContext.request.contextPath }/resources/img/cgvlogo.png" alt="로그 이미지"></a></h1>
  <h2>영화 정보 관리</h2>
 <ul>
     <li><a href="adMovieInsert">영화정보 등록 </a></li>
 </ul>
     <form action="adMovie" method="post"> 
-        <input type="text" placeholder="이름을 검색해주세요">
-        <input type="submit" value="검색">
+        <input type="text" placeholder="영화 제목을 검색해주세요" name="title">
+        <input type="submit" value="영화 제목 검색">
     </form>
    
 <table>
@@ -29,19 +30,21 @@
         <th>별점</th>
         <th></th>
     </tr>   
-    <tr>
-        <td>54</td>
-        <td>변호인</td>
-        <td>나아다</td>
-        <td>20.157.453</td>
-        <td>국내</td>
-        <td>15세</td>
-        <td>5</td>
-        <td>
-            <button onclick="javascript:location.href='adMovieUpdate'">수정하기</button>
-            <button onclick="">삭제하기</button>
-        </td>
-    </tr>     
+    <c:forEach items="${movieVO }" var="movie">
+	    <tr>
+	        <td>${movie.movie_code }</td>
+	        <td>${movie.movie_title }</td>
+	        <td>${movie.movie_director }</td>
+	        <td>${movie.movie_date }</td>
+	        <td>${movie.movie_nation }</td>
+	        <td>${movie.movie_grade }</td>
+	        <td>${movie.movie_star }</td>
+	        <td>
+	            <button onclick="javascript:location.href='adMovieUpdate?movie_code=${movie.movie_code }'">수정하기</button>
+	            <button onclick="javascript:location.href='adMovieDelect?movie_code=${movie.movie_code }'">삭제하기</button>
+	        </td>
+	    </tr>
+    </c:forEach>
 </table>
 </body>
 </html>
