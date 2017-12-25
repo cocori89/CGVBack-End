@@ -70,4 +70,10 @@ public class MemberDaoImpl implements MemberDao {
 		return sqlSession.update("member.memberUpdateAdmin",memberVO);
 	}
 
+	//관리자가 회원정보 이름으로 검색
+	@Override
+	public List<MemberVO> memberSelectName(String name) {
+		return sqlSession.selectList("member.memberSelectName", name);
+	}
+
 }

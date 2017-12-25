@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.tiles.request.Request;
-
 import kr.co.cgv.domain.MemberVO;
 
 public interface MemberService {
@@ -24,4 +22,7 @@ public interface MemberService {
 	public List<MemberVO> memberSelectAll();//관리자가 모든 회원 정보 요청
 	
 	public int memberUpdateAdmin(HttpServletRequest request);// 관리가자 회원 정보 수정 요청
+	
+	public List<MemberVO> memberSelectName(String name);// 관리자가 회원 정보 이름으로 검색
+
 }

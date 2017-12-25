@@ -16,6 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) 
 		from notice
 	</select>
+
 	<!-- 공지사항을 부분적으로 불러오기 -->
 	<select id="noticeSelectPaging" parameterType="java.lang.Integer" resultType="kr.co.cgv.domain.NoticeVO">
 		select * 
@@ -37,5 +38,50 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		set notice_hit = notice_hit+1
 		where notice_code=#{notice_code}
 	</update>
+
+
+	<!-- 관리자 ********************************************** -->
 	
+	<!-- 관리자가 모든 공지사항 정보 요청  -->	
+	<select id="noticeSelectAll" resultType="kr.co.cgv.domain.NoticeVO">
+		select * 
+		from notice
+		order by notice_date asc
+	</select>
+
+	<!-- 관리자가 공지사항 종류 별로 검색하기  -->
+	<select id="noticeSelectKind" parameterType="java.lang.String" resultType="kr.co.cgv.domain.NoticeVO">
+		select *
+		from notice
+		where notice_kind like concat('%',#{kind},'%')
+		order by notice_date asc
+	</select>
+	
+	<!-- 관리자가 공지사항 제목으로 검색 하기  -->
+	<select id="noticeSelectTitle" parameterType="java.lang.String" resultType="kr.co.cgv.domain.NoticeVO">
+		select *
+		from notice
+		where notice_title like concat('%',#{title},'%')
+		order by notice_date asc
+	</select>
+	
+	<!-- 관리자가 공지 사항 등록  -->
+	<insert id="noticeInsert" parameterType="kr.co.cgv.domain.NoticeVO">
+		insert into notice(notice_kind,notice_writer,notice_date,notice_title,notice_content,notice_use)
+		values(#{notice_kind},#{notice_writer},curdate(),#{notice_title},#{notice_content},#{notice_use})
+	</insert>
+	
+	<!-- 관리자가 공지사항 수정  -->
+	<update id="noticeUpdate" parameterType="kr.co.cgv.domain.NoticeVO">
+		update notice
+		set notice_kind = #{notice_kind }, notice_writer = #{notice_writer },notice_date = #{notice_date },
+		    notice_title = #{notice_title },notice_content = #{notice_content },notice_use = #{notice_use }
+		where notice_code = #{ notice_code}
+	</update>
+	
+	<!-- 관리자가 공지사항 삭제 -->
+	<delete id="noticeDelete" parameterType="java.lang.Integer">
+		delete from notice 
+		where notice_code = #{notice_code}
+	</delete>	
 </mapper>

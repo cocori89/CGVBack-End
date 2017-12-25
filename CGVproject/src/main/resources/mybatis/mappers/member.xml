@@ -64,4 +64,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where member_id = #{member_id}
 	</update>
 	
+	<!-- 관리자가 검색해서 이름 검색해서 나오는 것  -->
+	<select id="memberSelectName" parameterType="java.lang.String" resultType="kr.co.cgv.domain.MemberVO">
+		select * 
+		from member
+		where member_name like concat('%',#{name},'%')
+		order by member_id asc
+	</select>
+	
 </mapper>

@@ -16,7 +16,7 @@
     <h2>회원정보 관리</h2>
 
     <form action="adMember" method="post">
-        <input type="text" placeholder="이름을 검색해주세요">
+        <input type="text" placeholder="이름을 검색해주세요" name="name">
         <input type="submit" value="검색">
     </form>
    

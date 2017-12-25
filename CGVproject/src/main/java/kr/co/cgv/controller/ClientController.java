@@ -18,6 +18,8 @@ import kr.co.cgv.domain.NoticeVO;
 import kr.co.cgv.service.MemberService;
 import kr.co.cgv.service.NoticeService;
 
+// 클라이언트 페이지이동만 있으며 최소한의 기능만 있음 
+
 @Controller
 public class ClientController {
 
@@ -74,53 +76,6 @@ public class ClientController {
 		return "memberInsert";
 	}
 
-	// 회원정보 가입
-	@RequestMapping(value = "memberInsert", method = RequestMethod.POST)
-	public String memberInsert(HttpServletRequest request) {
-		int r = memberService.memberInset(request);
-
-		if (r == 0) {// 실패시
-			return "memberInsert";
-		} else {// 성공시
-			return "login";
-		}
-	}
-
-	// 회원 정보 수정 페이지 이동
-	@RequestMapping(value = "memberUpdate", method = RequestMethod.GET)
-	public String memberUpdateLink(Model model, HttpSession session) {
-		String member_id = String.valueOf(session.getAttribute("member_id"));
-		MemberVO memberVO = memberService.memberSelect(member_id);
-		model.addAttribute("memberVO", memberVO);
-		return "memberUpdate";
-	}
-
-	// 회원 정보 수정
-	@RequestMapping(value = "memberUpdate", method = RequestMethod.POST)
-	public String memberUpdate(HttpServletRequest request) {
-		int r = memberService.memberUpdate(request);
-
-		if (r == 0) {// 실패시
-			return "memberUpdate";
-		} else {// 성공시
-			return "mypage";
-		}
-
-	}
-	
-	// 회원 정보 탈퇴
-	@RequestMapping(value ="memberDelete", method = RequestMethod.GET)
-	public String memberDelete(HttpSession session){
-		String member_id = String.valueOf(session.getAttribute("member_id"));
-		int r = memberService.memberDelete(member_id);	
-		if(r==0){//실패시
-			return "mypgae";
-		}else{
-			session.invalidate();//탈퇴시 세션도 제거 
-			return "index";
-		}
-	}
-	
 	// mypage(마이페이지) 페이지로 이동
 	@RequestMapping(value = "mypage", method = RequestMethod.GET)
 	public String mypage() {
@@ -130,7 +85,7 @@ public class ClientController {
 	//공지사항 페이지 이동 
 	@RequestMapping(value = "noticeList", method = RequestMethod.GET)
 	public String noticeList(Model model) {
-		List<NoticeVO> noticeVO = noticeService.noticeSelectList(1);
+		List<NoticeVO> noticeVO = noticeService.noticeSelectList(0);
 		int noticeCount = noticeService.noticeCount();
 		model.addAttribute("noticeVO", noticeVO);
 		model.addAttribute("noticeCount", noticeCount);
@@ -159,7 +114,7 @@ public class ClientController {
 		return "noticeList";
 	}
 
-	// 공지 사항 상세보기 
+	// 공지 사항 상세보기 페이지 이동 
 	@RequestMapping(value = "noticeContent", method = RequestMethod.GET)
 	public String noticeContent(@RequestParam("notice_code")int notice_code, Model model) {
 		NoticeVO noticeVO = noticeService.noticeSelectContent(notice_code);
@@ -169,10 +124,11 @@ public class ClientController {
 		return "noticeContent";
 	}
 	
-	//영화 정보 
+	//영화 정보 페이지 이동 
 	@RequestMapping(value = "movie", method = RequestMethod.GET)
 	public String movie() {
 		return "movie";
 	}
+	
 	
 }

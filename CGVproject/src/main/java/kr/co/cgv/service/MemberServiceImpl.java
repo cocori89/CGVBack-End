@@ -141,7 +141,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	
-		/*관리자*/
+		/*관리자---------------------------------------------*/
 	
 	//관리자가 회원정보 요청
 	@Override
@@ -150,6 +150,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 
+	//관리자가 회원정보 수정
 	@Override
 	public int memberUpdateAdmin(HttpServletRequest request) {
 		MemberVO memberVO = new MemberVO();
@@ -165,6 +166,12 @@ public class MemberServiceImpl implements MemberService {
 
 		
 		return memberDao.memberUpdateAdmin(memberVO);
+	}
+
+	//관리자가 회원정보 이름으로 검색
+	@Override
+	public List<MemberVO> memberSelectName(String name) {
+		return memberDao.memberSelectName(name);
 	}
 
 }

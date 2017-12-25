@@ -23,4 +23,6 @@ public interface MemberDao {
 	
 	public int memberUpdateAdmin(MemberVO memberVO);//관리자 회원정보 수정
 	
+	public List<MemberVO> memberSelectName(String name);// 관리자가 회원 정보 이름으로 검색
+	
 }

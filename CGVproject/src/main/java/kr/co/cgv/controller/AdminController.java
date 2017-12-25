@@ -14,13 +14,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.cgv.domain.MemberVO;
+import kr.co.cgv.domain.NoticeVO;
 import kr.co.cgv.service.MemberService;
+import kr.co.cgv.service.NoticeService;
+
+//이곳을 단순 페이지 이동만 최대한 만든다. 
 
 @Controller
 public class AdminController {
 
+	
 	@Autowired
 	MemberService memberService;
+	
+	@Autowired
+	NoticeService noticeService;
 	
 	//임시로 index
 	@RequestMapping(value = "admin/adIndex", method =RequestMethod.GET )
@@ -46,27 +54,29 @@ public class AdminController {
 		return "admin/adMemberModify";
 	}
 	
-	//관리자 회원 정보 수정 수행
-	@RequestMapping(value = "admin/adMemberModify", method =RequestMethod.POST)
-	public String adMemberModifyUpdate(Model model, HttpServletRequest request){
-		int r = memberService.memberUpdateAdmin(request);
-		if(r==0){//실패시
-			return "admin/adMemberModify";
-		}else{
-			return "redirect:adMember";
-		}
+	
+	//관리자 공지사항 관리 페이지로 이동
+	@RequestMapping(value = "admin/adNotice", method = RequestMethod.GET)
+	public String adNotice(Model model){
+		List<NoticeVO> noticeVO = noticeService.noticeSelectAll();
+		model.addAttribute("noticeVO", noticeVO);
+		return "admin/adNotice";
+	}
+
+	//관리자 공지 사항 등록 페이지이동 
+	@RequestMapping(value = "admin/adNoticeInsert", method = RequestMethod.GET)
+	public String adNoticeInsert(Model model){
+		return "admin/adNoticeInsert";
 	}
 	
-	//관리자가 회원 정보 삭제 
-	@RequestMapping(value ="admin/adMemberDelete", method = RequestMethod.GET)
-	public String memberDelete(@RequestParam("id")String id){
-		String member_id = String.valueOf(id);
-		int r = memberService.memberDelete(member_id);	
-		if(r==0){//실패시
-			return "adMember";
-		}else{
-			return "redirect:adMember";
-		}
+	//관리자 공지사항 수정 페이지 이동
+	@RequestMapping(value = "admin/adNoticeUpdate", method = RequestMethod.GET)
+	public String adNoticeUpdate(@RequestParam("notice_code")int notice_code, Model model){
+		NoticeVO noticeVO = noticeService.noticeSelectContent(notice_code);
+		model.addAttribute("notice", noticeVO);
+		return "admin/adNoticeUpdate";
 	}
+	
+	
 	
 }
