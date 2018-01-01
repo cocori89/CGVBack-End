@@ -15,6 +15,14 @@ public class MovieDaoImpl implements MovieDao {
 	SqlSession sqlSession;
 	
 	/*클라이언트-----------------------------*/
+	
+	// 영화 상위 top 6 영화 정보 불러 오기
+	@Override
+	public List<MovieVO> movieSelectTop6() {
+		return sqlSession.selectList("movie.movieSelectTop6");
+	}
+
+
 	/*관리자---------------------------------*/ 
 	// 관리자가 영화 정보 등록 
 	@Override
@@ -36,8 +44,19 @@ public class MovieDaoImpl implements MovieDao {
 	
 	// 관리자가 영화 정보 수정을 위해 코드에 의해서 가져 옴 (클라이언트와 공통)
 	@Override
-	public MovieVO movieSelectCode(String movie_code) {
+	public MovieVO movieSelectCode(int movie_code) {
 		return sqlSession.selectOne("movie.movieSelectCode",movie_code);
 	}
 
+	// 관리자 영화 정보 수정 수행 
+	@Override
+	public int movieUpdate(MovieVO movieVO) {
+		return sqlSession.update("movie.movieUpdate", movieVO);
+	}
+
+	//관리자가 영화정보 삭제하기 
+	@Override
+	public int movieDelete(int movie_code) {
+		return sqlSession.update("movie.movieDelete", movie_code);
+	}
 }

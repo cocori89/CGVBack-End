@@ -12,22 +12,23 @@
 <body>
     <h1><a href="adIndex"><img src="${pageContext.request.contextPath }/resources/img/cgvlogo.png" alt="로그 이미지"></a></h1>
     <h2>영화 정보 수정</h2>
-    <form action="adMoviceUpdate" method="post">
+    <form action="adMovieUpdate" method="post" enctype="multipart/form-data">
+    	<input type="hidden" value="${movie.movie_code}" name="code">
         <table>
            <tr>
                <td>영화 상태</td>
                <td>
               	 현상태: ${movie.movie_state}
                    <select name="state" id="">
-                       <option value="">상영전</option>
-                       <option value="">상영중</option>
-                       <option value="">상영종료</option>
+                       <option value="상영전">상영전</option>
+                       <option value="상영중">상영중</option>
+                       <option value="상영종료">상영종료</option>
                    </select>
                </td>
            </tr>
             <tr>
                 <td>포스터등록</td>
-                <td><input type="file" name="poster" value="${movie.movie_poster }"></td>
+                <td><input type="file" name="poster" ></td>
             </tr>
             <tr>
                 <td>영화 제목</td>
@@ -80,7 +81,7 @@
             <tr>
                 <td>줄거리</td>
                 <td>
-                    <textarea name="plot">${movie.movie_plot }</textarea>
+                    <textarea name="plot">${movie.movie_plot}</textarea>
                 </td>
             </tr>
             <tr>

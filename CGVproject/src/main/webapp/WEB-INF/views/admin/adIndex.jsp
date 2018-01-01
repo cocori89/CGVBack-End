@@ -14,6 +14,7 @@
     <li><a href="adReservation">예약 관리</a></li>
     <li><a href="adCoupon">쿠폰 관리</a></li>
     <li><a href="adMovieMoney">영화 관람권 관리</a></li>
+    <li><a href="adEvent">이벤트 관리</a></li>
     <li><a href="adNotice">공지사항 관리</a></li>
     <li><a href="adMovie">영화정보 관리</a></li>
     <li><a href="adSite">사이트 관리</a></li>

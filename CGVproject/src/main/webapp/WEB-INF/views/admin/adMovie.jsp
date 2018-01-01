@@ -41,7 +41,7 @@
 	        <td>${movie.movie_star }</td>
 	        <td>
 	            <button onclick="javascript:location.href='adMovieUpdate?movie_code=${movie.movie_code }'">수정하기</button>
-	            <button onclick="javascript:location.href='adMovieDelect?movie_code=${movie.movie_code }'">삭제하기</button>
+	            <button onclick="javascript:location.href='adMovieDelete?movie_code=${movie.movie_code }'">삭제하기</button>
 	        </td>
 	    </tr>
     </c:forEach>

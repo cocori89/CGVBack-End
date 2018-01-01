@@ -34,96 +34,96 @@
                                 <li>
                                     <div class="box-image">
                                         <strong class="rank">No.1</strong>
-                                        <a href="#">
-                                            <img src="${pageContext.request.contextPath}/resources/img/movie/stillrain.jpg" alt="강철비 포스터">
+                                        <a href="movieContent?movie_code=${movie1.movie_code}">
+                                            <img src="${pageContext.request.contextPath}/resources/img/movie/${movie1.movie_poster}">
                                         </a>
                                     </div>
                                     <div class="box-contents">
-                                        <a href="#">
-                                            <strong class="title">강철비</strong>
+                                        <a href="movieContent?movie_code=${movie1.movie_code}">
+                                            <strong class="title">${movie1.movie_title}</strong>
                                         </a>
-                                        <div class="parcent">예매율<span>12.6%</span></div>
-                                        <span><strong>2017.12.14<span>개봉</span></strong></span>
+                                        <div class="parcent">예매율<span>${movie1.movie_bookingrate}%</span></div>
+                                        <span><strong>${movie1.movie_date}<span>개봉</span></strong></span>
                                         <div><a href="#">예매하기</a></div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="box-image">
                                         <strong class="rank">No.2</strong>
-                                        <a href="#">
-                                            <img src="${pageContext.request.contextPath}/resources/img/movie/starwars.jpg" alt="스타워즈 포스터">
+                                        <a href="movieContent?movie_code=${movie2.movie_code}">
+                                            <img src="${pageContext.request.contextPath}/resources/img/movie/${movie2.movie_poster}">
                                         </a>
                                     </div>
                                     <div class="box-contents">
-                                        <a href="#">
-                                            <strong class="title">스타우즈: 라스트 제다이</strong>
+                                        <a href="movieContent?movie_code=${movie2.movie_code}">
+                                            <strong class="title">${movie2.movie_title}</strong>
                                         </a>
-                                        <div class="parcent">예매율<span>11.2%</span></div>
-                                        <span><strong>2017.12.14<span>개봉</span></strong></span>
+                                        <div class="parcent">예매율<span>${movie2.movie_bookingrate}%</span></div>
+                                        <span><strong>${movie2.movie_date}<span>개봉</span></strong></span>
                                         <div><a href="#">예매하기</a></div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="box-image">
                                         <strong class="rank">No.3</strong>
-                                        <a href="#">
-                                            <img src="${pageContext.request.contextPath}/resources/img/movie/mularder.jpg" alt="세 번째 살인 포스터">
+                                        <a href="movieContent?movie_code=${movie3.movie_code}">
+                                            <img src="${pageContext.request.contextPath}/resources/img/movie/${movie3.movie_poster}">
                                         </a>
                                     </div>
                                     <div class="box-contents">
-                                        <a href="#">
-                                            <strong class="title">세 번째 살인</strong>
+                                        <a href="movieContent?movie_code=${movie3.movie_code}">
+                                            <strong class="title">${movie3.movie_title}</strong>
                                         </a>
-                                        <div class="parcent">예매율<span>1.2%</span></div>
-                                        <span><strong>2017.12.14<span>개봉</span></strong></span>
+                                        <div class="parcent">예매율<span>${movie3.movie_bookingrate}%</span></div>
+                                        <span><strong>${movie3.movie_date}<span>개봉</span></strong></span>
                                         <div><a href="#">예매하기</a></div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="box-image">
                                         <strong class="rank">No.4</strong>
-                                        <a href="#">
-                                            <img src="${pageContext.request.contextPath}/resources/img/movie/piber.jpg" alt="튤립피버 포스터">
+                                        <a href="movieContent?movie_code=${movie4.movie_code}">
+                                            <img src="${pageContext.request.contextPath}/resources/img/movie/${movie4.movie_poster}">
                                         </a>
                                     </div>
                                     <div class="box-contents">
-                                        <a href="#">
-                                            <strong class="title">튤립 피버</strong>
+                                        <a href="movieContent?movie_code=${movie4.movie_code}">
+                                            <strong class="title">${movie4.movie_title}</strong>
                                         </a>
-                                        <div class="parcent">예매율<span>1.1%</span></div>
-                                        <span><strong>2017.12.14<span>개봉</span></strong></span>
+                                        <div class="parcent">예매율<span>${movie4.movie_bookingrate}%</span></div>
+                                        <span><strong>${movie4.movie_date}<span>개봉</span></strong></span>
                                         <div><a href="#">예매하기</a></div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="box-image">
                                         <strong class="rank">No.5</strong>
-                                        <a href="#">
-                                            <img src="${pageContext.request.contextPath}/resources/img/movie/remember.jpg" alt="기억의 밤 포스터">
+                                        <a href="movieContent?movie_code=${movie5.movie_code}">
+                                            <img src="${pageContext.request.contextPath}/resources/img/movie/${movie5.movie_poster}">
                                         </a>
                                     </div>
                                     <div class="box-contents">
-                                        <a href="#">
-                                            <strong class="title">기억의 밤</strong>
+                                        <a href="movieContent?movie_code=${movie5.movie_code}">
+                                            <strong class="title">${movie5.movie_title}</strong>
                                         </a>
-                                        <div class="parcent">예매율<span>1.2%</span></div>
-                                        <span><strong>2017.12.14<span>개봉</span></strong></span>
+                                        <div class="parcent">예매율<span>${movie5.movie_bookingrate}%</span></div>
+                                        <span><strong>${movie5.movie_date}<span>개봉</span></strong></span>
                                         <div><a href="#">예매하기</a></div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="box-image">
                                         <strong class="rank">No.6</strong>
-                                        <a href="#">
-                                            <img src="${pageContext.request.contextPath}/resources/img/movie/loveletter.jpg" alt="러브레터 포스터">
+                                        <a href="movieContent?movie_code=${movie6.movie_code}">
+                                            <img src="${pageContext.request.contextPath}/resources/img/movie/${movie6.movie_poster}">
                                         </a>
                                     </div>
                                     <div class="box-contents">
-                                        <a href="#">
-                                            <strong class="title">러븥레터</strong>
+                                        <a href="movieContent?movie_code=${movie6.movie_code}">
+                                            <strong class="title">${movie6.movie_title}</strong>
                                         </a>
-                                        <div class="parcent">예매율<span>0.8%</span></div>
-                                        <span><strong>2017.12.13<span>개봉</span></strong></span>
+                                        <div class="parcent">예매율<span>${movie6.movie_bookingrate}%</span></div>
+                                        <span><strong>${movie6.movie_date}<span>개봉</span></strong></span>
                                         <div><a href="#">예매하기</a></div>
                                     </div>
                                 </li>
@@ -158,7 +158,7 @@
                                        <span>1987<br/>드라마<br>
                                        <span>2017.12.27</span>개봉
                                        </span>
-                                       <sprong>D-8</sprong>
+                                       <strong>D-8</strong>
                                    </a>
                                </div>
                            </div>

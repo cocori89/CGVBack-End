@@ -1,0 +1,133 @@
+.contant {
+    width: 980px;
+    margin: auto;
+}
+
+/*이벤트 시작 */
+
+.event-top-title {
+    border-bottom: solid 4px #241d1e;
+}
+
+.event-top-title h3 {
+    font-size: 36px;
+}
+
+/*스펠셜 이벤트 메뉴*/
+
+.event-top-contents {
+    display: flex;
+}
+
+.event-top-contents > div {
+    flex-grow: 1;
+    padding: 20px;
+}
+.event-top-contents img{
+	width: 290px;
+	height: 240px; 
+}
+
+.event-bottom-nav {
+    width: 600px;
+    margin: auto;
+}
+
+.event-bottom-nav > ul {
+    display: flex;
+    background: red;
+    border-radius: 5px;
+}
+
+.event-bottom-nav > ul li {
+    flex-grow: 1;
+    padding: 0 10px;
+}
+
+.event-bottom-nav > ul li a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+/*이외의 이벤트들 */
+
+.event-bottom-top {
+    margin: auto;
+    width: 805px;
+    height: 180px;
+    background-image: url(../img/event/bg_event_top.gif);
+    background-repeat: no-repeat;
+
+}
+
+.event-bottom-mid {
+    margin: auto;
+    width: 805px;
+    height: 100%;
+    background-image: url(../img/event/bg_event.gif);
+    background-repeat: repeat-y;
+}
+
+.event-bottom-bot {
+    margin: auto;
+    width: 805px;
+    height: 158px;
+    background-image: url(../img/event/bg_event_bottom.gif);
+    background-repeat: no-repeat;
+    margin-top: -150px;
+}
+.event-bottom-content img{
+	width: 240px;
+	height: 200px;
+}
+.event-bottom-content{
+    display: flex;
+}
+.event-bottom-content>div{
+    flex-grow: 1;
+    padding: 0 10px;
+}
+.event-bottom-content li{
+    padding: 10px 0;
+}
+.content-two {
+    margin-top: -45px;
+}
+.content-three {
+    margin-top: -150px;
+}
+
+/*여기부터는 eventContet 부분*/
+table{
+    margin: 15px 0 ;
+}
+th{
+    padding: 10px 10px;
+    border-bottom: solid 1px #b8b6aa;
+    border-top: solid 1px #b8b6aa;
+    background: #edebe1 ;
+
+}
+th:nth-child(1){
+    width: 200px;
+    color: #2275a4;
+}
+
+th:nth-child(2){
+    color: #666666;
+}
+
+th:nth-child(3){
+    width: 220px;
+    color: #666666;
+}
+
+td{
+    padding: 10px 0px;
+}
+tr:last-child td{
+    border-bottom: solid 1px #ceccc1;
+}
+table img{
+    width: 980px
+}

@@ -2,22 +2,24 @@ package kr.co.cgv.domain;
 
 // 영화정보 DTO
 public class MovieVO {
-	String movie_code;// 영화 코드
-	String movie_title;// 제목
-	String movie_director; // 감독
-	String movie_producer; // 프르 듀서
-	String movie_acter; // 배우
-	String movie_genre;// 장르
-	String movie_grade; // 상영 등급
-	String movie_time; // 상영 시간(런타임)
-	String movie_nation;// 영화 만든 국가 국내/해외(나라)
-	String movie_site;// 영화 공식 홈페이지
-	String movie_date;// 영화 개봉일
-	String movie_poster;// 영화 포스터 파일 이름
-	String movie_state;// 영화 개봉 전,후,종료
-	String movie_plot;// 줄거리
-	String movie_star;// 별점
+	private int movie_code;// 영화 코드
+	private String movie_title;// 제목
+	private String movie_director; // 감독
+	private String movie_producer; // 프르 듀서
+	private String movie_acter; // 배우
+	private String movie_genre;// 장르
+	private String movie_grade; // 상영 등급
+	private String movie_time; // 상영 시간(런타임)
+	private String movie_nation;// 영화 만든 국가 국내/해외(나라)
+	private String movie_site;// 영화 공식 홈페이지
+	private String movie_date;// 영화 개봉일
+	private String movie_poster;// 영화 포스터 파일 이름
+	private String movie_state;// 영화 개봉 전,후,종료
+	private String movie_plot;// 줄거리
+	private String movie_star;// 별점
+	private String movie_bookingrate;//영화예매율
 
+	
 	@Override
 	public String toString() {
 		return "MovieVO [movie_code=" + movie_code + ", movie_title=" + movie_title + ", movie_director="
@@ -27,11 +29,11 @@ public class MovieVO {
 				+ ", movie_poster=" + movie_poster + ", movie_state=" + movie_state + "]";
 	}
 
-	public String getMovie_code() {
+	public int getMovie_code() {
 		return movie_code;
 	}
 
-	public void setMovie_code(String movie_code) {
+	public void setMovie_code(int movie_code) {
 		this.movie_code = movie_code;
 	}
 
@@ -146,4 +148,12 @@ public class MovieVO {
 	public void setMovie_star(String movie_star) {
 		this.movie_star = movie_star;
 	}
+	public String getMovie_bookingrate() {
+		return movie_bookingrate;
+	}
+
+	public void setMovie_bookingrate(String movie_bookingrate) {
+		this.movie_bookingrate = movie_bookingrate;
+	}
+
 }

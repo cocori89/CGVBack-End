@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이벤트 -->
+<mapper namespace="event">
+	<!-- 클라이언트 -->
+	<!-- 스폐셜 이벤트 정보 불러 오기  -->
+	<select id="eventSelectSpecial" resultType="kr.co.cgv.domain.EventVO">
+		select *
+		from event
+		where event_important = '스폐셜'
+        order by event_startdate desc
+		limit 3
+	</select>
+	<!-- 일반 이벤트 정보 불러 오기  -->
+	<select id="eventSelectNormal" resultType="kr.co.cgv.domain.EventVO">
+		select *
+		from event
+		where event_important = '일반'
+        order by event_startdate desc
+		limit 9
+	</select>
+	<!-- 관리자  -->	
+	<!-- 관리자가 이벤트 등록 -->
+	<insert id="eventInsert" parameterType="kr.co.cgv.domain.EventVO">
+		insert into event(event_title, event_somenail, event_contentimg, event_startdate, event_enddate, event_kind, event_important)
+		values (#{event_title}, #{event_somenail}, #{event_contentimg}, #{event_startdate}, #{event_enddate}, #{event_kind}, #{event_important})
+	</insert>
+	<!-- 관리자가 모든 이벤트 정보 요청  -->
+	<select id="eventSelectAll" resultType="kr.co.cgv.domain.EventVO">
+		select * 
+		from event
+	</select>
+	<!-- 관리자가 이벤트 정보 제목으로 검색-->
+	<select id="eventSelectTitle" parameterType="java.lang.String" resultType="kr.co.cgv.domain.EventVO">
+		select *
+		from event
+		where event_title like concat('%',#{title},'%')
+		order by event_code asc
+	</select>
+	<!-- 관리자가 이벤트 정보 상세 정보 불러 오기(클라이언트 공용)  -->
+	<select id="eventSelectCode" parameterType="java.lang.Integer" resultType="kr.co.cgv.domain.EventVO">
+		select *
+		from event
+		where event_code = #{event_code}
+	</select>
+	<!-- 관리자가 이벤트 정보 수정 -->
+	<update id="eventUpdate" parameterType="kr.co.cgv.domain.EventVO">
+		update event
+		set event_title = #{event_title}, event_somenail = #{event_somenail}, event_contentimg = #{event_contentimg},
+			event_startdate = #{event_startdate}, event_enddate = #{event_enddate}, event_kind = #{event_kind}, event_important = #{event_important}
+		where event_code = #{event_code}
+	</update>
+	<!-- 관리자가 이벤트 정보를 삭제를 할때  -->
+	<delete id="eventDelete" parameterType="java.lang.Integer">
+		delete from event
+		where event_code = #{event_code}
+	</delete>
+</mapper>

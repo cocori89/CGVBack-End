@@ -20,6 +20,7 @@ public class MovieController {
 	MovieService movieService;
 	
 	/* 클라이언트-------------- */
+
 	/* 관리자----------------- */
 	// 관리자 영화 정보 등록 페이지 이동
 	@RequestMapping(value = "admin/adMovieInsert", method = RequestMethod.POST)
@@ -32,11 +33,33 @@ public class MovieController {
 		}
 		
 	}
+	//관리자가 영화정보 영화 제목으로 검색하기
 	@RequestMapping(value = "admin/adMovie", method = RequestMethod.POST)
 	public String adMovieSelectTitle(@RequestParam("title")String title,Model model) {
 		List<MovieVO> movieVO = movieService.movieSelectTitle(title);
 		model.addAttribute("movieVO", movieVO);
 		return "admin/adMovie";
+	}
+	
+	//관리자가 영화 정보 수정
+	@RequestMapping(value = "admin/adMovieUpdate", method = RequestMethod.POST)
+	public String adMovieUpdate(MultipartHttpServletRequest request,Model model) {
+		int r = movieService.movieUpdate(request);
+		if(r==0){//실패시
+			return "admin/adMovieUpdate";
+		}else {
+			return "redirect:adMovie";
+		}
+	}
+	//관리자가 영화 정보 삭제
+	@RequestMapping(value = "admin/adMovieDelete", method = RequestMethod.GET)
+	public String adMovieDelete(@RequestParam("movie_code")int movie_code,Model model) {
+		int r = movieService.movieDelete(movie_code);
+		if(r==0){//실패시
+			return "admin/adMovieDelete";
+		}else {
+			return "redirect:adMovie";
+		}
 	}
 
 }

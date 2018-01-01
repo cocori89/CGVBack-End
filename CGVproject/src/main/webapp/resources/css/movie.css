@@ -57,6 +57,8 @@ section{
     flex-flow: column;
 }
 .box-image img{
+	height: 270px;
+    width: 195px;
     padding: 5px;    
 }
 
@@ -152,7 +154,10 @@ section{
 .movie-info-poster{
     flex-grow: 1;
 }
-
+.movie-info-poster img{
+	width:185px;
+	height: 260px;
+}
 .movie-info-content{
     flex-grow: 20;
 }

@@ -6,6 +6,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 영화 정보 -->
 <mapper namespace="movie">
 	<!-- 클라이언트 -->
+	
+	<!-- 상영중인 영화 정보 top 6개 예매율 좋은걸로 가져오기 -->
+	<select id="movieSelectTop6" resultType="kr.co.cgv.domain.MovieVO">
+		select *
+		from movie
+		where movie_state='상영중'
+		order by movie_bookingrate desc
+		limit 6
+	</select>
+	
 
 	<!-- 관리자  -->
 	<!-- 관리자가 영화정보 입력 -->
@@ -32,10 +42,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 관리자가 영화정보 수정  (코드를 참고 해서 가겨 오기)  -->
-	<select id="movieSelectCode" parameterType="java.lang.String" resultType="kr.co.cgv.domain.MovieVO">
+	<select id="movieSelectCode" parameterType="java.lang.Integer" resultType="kr.co.cgv.domain.MovieVO">
 		select *
 		from movie
 		where movie_code = #{movie_code}
 	</select>
+	
+	<!-- 관리자 영화 정보 수정 수행 -->
+	<update id="movieUpdate" parameterType="kr.co.cgv.domain.MovieVO">
+		update movie
+		set movie_title = #{movie_title}, movie_director = #{movie_director}, movie_producer = #{movie_producer}, movie_acter = #{movie_acter},
+			movie_genre =#{movie_genre}, movie_plot = #{movie_plot}, movie_grade = #{movie_grade}, movie_time = #{movie_time},
+			movie_nation = #{movie_nation}, movie_site = #{movie_site}, movie_date = #{movie_date}, movie_poster = #{movie_poster}, movie_state = #{movie_state}
+		where movie_code = #{movie_code}
+	</update>
+	<!-- 관리자가 영화 정보 삭제하기  -->
+	<delete id="movieDelete" parameterType="java.lang.Integer">
+		delete from movie
+		where movie_code = #{movie_code}
+	</delete>
 	
 </mapper>
