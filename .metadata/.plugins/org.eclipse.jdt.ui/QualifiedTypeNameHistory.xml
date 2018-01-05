@@ -9,7 +9,6 @@
 <fullyQualifiedTypeName name="java.lang.ProcessBuilder.Redirect"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.support.RedirectAttributes"/>
 <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="kr.co.cgv.service.MemberService"/>
@@ -42,17 +41,19 @@
 <fullyQualifiedTypeName name="kr.co.cgv.domain.SeatVO"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
 <fullyQualifiedTypeName name="kr.co.cgv.dao.PricelistDao"/>
 <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Around"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="kr.co.cgv.domain.PricelistVO"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="kr.co.cgv.service.PricelistService"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="kr.co.cgv.domain.ListtableVO"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
 </qualifiedTypeNameHistroy>

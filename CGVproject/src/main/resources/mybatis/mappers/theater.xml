@@ -47,12 +47,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT seat_row 
 		FROM cgv.seat
 		where theater_code= #{theater_code}
-		group by seat_row;
+		group by seat_row
+		order by seat_row asc
 	</select>
 	<!-- 관리자 상영관 좌서 해당하는 중에 대한 칸 빼오기 -->
 	<select id="theaterSelectSeatColumn" parameterType="java.util.Map" resultType="java.lang.String">
 		SELECT seat_column 
 		FROM cgv.seat
 		where theater_code= #{theater_code} and seat_row = #{seat_row}
+		order by seat_column 
 	</select>
 </mapper>

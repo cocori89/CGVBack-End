@@ -1,5 +1,6 @@
 package kr.co.cgv.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.cgv.domain.EventVO;
+import kr.co.cgv.domain.ListtableVO;
 import kr.co.cgv.domain.MemberVO;
 import kr.co.cgv.domain.MovieVO;
 import kr.co.cgv.domain.NoticeVO;
@@ -177,15 +179,24 @@ public class AdminController {
 		model.addAttribute("siteVO", siteVO);
 		return "admin/adTheaterUpdate";
 	}
+	
+	//test 영역
+	//test 영역
+	
 	//관리자 상영관 좌석 정보 가져 오기 (도저히 어떻게 할수가 없음)
 	@RequestMapping(value = "admin/adSeat", method = RequestMethod.GET)
 	public String adSeat(@RequestParam("theater_code")String theater_code,Model model){
 		List<String> seat_row = theaterService.theaterSelectSeatRow(theater_code);
+		List<ListtableVO> test = new ArrayList<ListtableVO>();
 		for(String row : seat_row){
+			ListtableVO listtableVO = new ListtableVO();
 			List<String> seat_column = theaterService.theaterSelectSeatColumn(theater_code, row);
-			model.addAttribute("seat_column", seat_column);
+			System.out.println(row);
+			listtableVO.setRow(row);
+			listtableVO.setColumn(seat_column);
+			test.add(listtableVO);
 		}
-		model.addAttribute("seat_row", seat_row);
+		model.addAttribute("test",test);
 		return "admin/adSeat";
 	}
 	//관리자 가격표 정보 관리 페이지 이동
