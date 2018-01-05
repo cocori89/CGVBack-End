@@ -15,28 +15,35 @@ import kr.co.cgv.domain.EventVO;
 import kr.co.cgv.domain.MemberVO;
 import kr.co.cgv.domain.MovieVO;
 import kr.co.cgv.domain.NoticeVO;
+import kr.co.cgv.domain.PricelistVO;
+import kr.co.cgv.domain.SiteVO;
+import kr.co.cgv.domain.TheaterVO;
 import kr.co.cgv.service.EventService;
 import kr.co.cgv.service.MemberService;
 import kr.co.cgv.service.MovieService;
 import kr.co.cgv.service.NoticeService;
+import kr.co.cgv.service.PricelistService;
+import kr.co.cgv.service.SiteService;
+import kr.co.cgv.service.TheaterService;
 
 //이곳을 단순 페이지 이동만 최대한 만든다. 
 
 @Controller
 public class AdminController {
-
-	
 	@Autowired
 	MemberService memberService;
-	
 	@Autowired
 	NoticeService noticeService;
-	
 	@Autowired
 	MovieService movieService;
-	
 	@Autowired
 	EventService eventService;
+	@Autowired
+	SiteService siteService;
+	@Autowired
+	TheaterService theaterService;
+	@Autowired
+	PricelistService pricelistService;
 	
 	//임시로 index
 	@RequestMapping(value = "admin/adIndex", method =RequestMethod.GET )
@@ -125,6 +132,73 @@ public class AdminController {
 		System.out.println(eventVO.toString());
 		model.addAttribute("event", eventVO);
 		return "admin/adEventUpdate";
+	}
+	//관리자 사이트(지점) 정보 관리 페이지 이동
+	@RequestMapping(value = "admin/adSite", method = RequestMethod.GET)
+	public String adStie(Model model){
+		List<SiteVO> siteVO = siteService.siteSelectAll();
+		model.addAttribute("siteVO", siteVO);
+		return "admin/adSite";
+	}
+	//관리자 사이트(지점) 정보 관리  등록 페이지 이동
+	@RequestMapping(value = "admin/adSiteInsert", method = RequestMethod.GET)
+	public String adStieInsert(){
+		return "admin/adSiteInsert";
+	}
+	//관리자 사이트(지점) 정보 관리  수정 페이지 이동
+	@RequestMapping(value = "admin/adSiteUpdate", method = RequestMethod.GET)
+	public String adStieUpdate(@RequestParam("site_code")String site_code, Model model){
+		SiteVO siteVO = siteService.siteSelectCode(site_code);
+		model.addAttribute("site", siteVO);
+		return "admin/adSiteUpdate";
+	} 
+	//관리자 상영관 정보 관리 페이지
+	@RequestMapping(value = "admin/adTheater", method = RequestMethod.GET)
+	public String adTheater(Model model){
+		List<TheaterVO> theaterVO = theaterService.theaterSelectAll();
+		List<SiteVO> siteVO = siteService.siteSelectAll();
+		model.addAttribute("theaterVO", theaterVO);
+		model.addAttribute("siteVO", siteVO);
+		return "admin/adTheater";
+	}
+	//관리자 상영관 정보 입력 페이지
+	@RequestMapping(value = "admin/adTheaterInsert", method = RequestMethod.GET)
+	public String adTheaterInsert(Model model){
+		List<SiteVO> siteVO = siteService.siteSelectAll();
+		model.addAttribute("siteVO", siteVO);
+		return "admin/adTheaterInsert";
+	}
+	//관리자 상영관 정보 수정 페이지
+	@RequestMapping(value = "admin/adTheaterUpdate", method = RequestMethod.GET)
+	public String adTheaterUpdate(@RequestParam("theater_code")String theater_code,Model model){
+		TheaterVO theaterVO = theaterService.theaterSelectCode(theater_code);
+		List<SiteVO> siteVO = siteService.siteSelectAll();
+		model.addAttribute("theater", theaterVO);
+		model.addAttribute("siteVO", siteVO);
+		return "admin/adTheaterUpdate";
+	}
+	//관리자 상영관 좌석 정보 가져 오기 (도저히 어떻게 할수가 없음)
+	@RequestMapping(value = "admin/adSeat", method = RequestMethod.GET)
+	public String adSeat(@RequestParam("theater_code")String theater_code,Model model){
+		List<String> seat_row = theaterService.theaterSelectSeatRow(theater_code);
+		for(String row : seat_row){
+			List<String> seat_column = theaterService.theaterSelectSeatColumn(theater_code, row);
+			model.addAttribute("seat_column", seat_column);
+		}
+		model.addAttribute("seat_row", seat_row);
+		return "admin/adSeat";
+	}
+	//관리자 가격표 정보 관리 페이지 이동
+	@RequestMapping(value = "admin/adPricelist", method = RequestMethod.GET)
+	public String adPricelist(Model model){
+		List<PricelistVO> pricelistVO = pricelistService.pricelistSelectAll();
+		model.addAttribute("pricelistVO", pricelistVO);
+		return "admin/adPricelist";
+	}
+	//관리자 가격표 등록 페이지 이동
+	@RequestMapping(value = "admin/adPricelistInsert", method = RequestMethod.GET)
+	public String adPricelistInsert(){
+		return "admin/adPricelistInsert";
 	}
 }
 

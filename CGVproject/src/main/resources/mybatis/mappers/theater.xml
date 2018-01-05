@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="theater">
+	<!-- 클라이언트 -->
+	<!-- 관리자 -->
+	<!-- 관리자가 상영관 정보 등록 -->
+	<insert id="theaterInsert" parameterType="kr.co.cgv.domain.TheaterVO">
+		insert into theater(theater_code,site_code,theater_num,theater_people,theater_kind)
+		values(#{theater_code},#{site_code},#{theater_num},#{theater_people},#{theater_kind})
+	</insert>
+	<!-- 관리자 상영관 정보 모두 가져오기 -->
+	<select id="theaterSelectAll" resultType="kr.co.cgv.domain.TheaterVO">
+		select * 
+		from theater
+	</select>
+	<!-- 관리자 상영관정보를 사이트 별로 검색 -->
+	<select id="theaterSelectSite" parameterType="java.lang.String" resultType="kr.co.cgv.domain.TheaterVO">
+		select * 
+		from theater
+		where site_code = #{site_code}
+	</select>
+	<!-- 관리자 상영관 상세 정보 코드로 검색  가져 오기 -->
+	<select id="theaterSelectCode" parameterType="java.lang.String" resultType="kr.co.cgv.domain.TheaterVO">
+		select * 
+		from theater
+		where theater_code =#{theater_code}
+	</select>
+	<!-- 관리자 상영관 정보 수정  -->
+	<update id="theaterUpdate" parameterType="kr.co.cgv.domain.TheaterVO">
+		update theater 
+		set site_code = #{site_code},theater_num = #{theater_num},theater_people = #{theater_people},theater_kind = #{theater_kind}
+		where theater_code = #{theater_code}
+	</update>
+	
+	<!-- 관리자 상영관 좌석정보 가져 오기  -->
+	<select id="theaterSelectSeat" parameterType="java.lang.String" resultType="kr.co.cgv.domain.SeatVO">
+		select *
+		from seat
+		where theater_code =#{theater_code}
+	</select>
+	
+	<!-- 관리자 상영관 좌석 줄만 빼오기 -->
+	<select id="theaterSelectSeatRow" parameterType="java.lang.String" resultType="java.lang.String">
+		SELECT seat_row 
+		FROM cgv.seat
+		where theater_code= #{theater_code}
+		group by seat_row;
+	</select>
+	<!-- 관리자 상영관 좌서 해당하는 중에 대한 칸 빼오기 -->
+	<select id="theaterSelectSeatColumn" parameterType="java.util.Map" resultType="java.lang.String">
+		SELECT seat_column 
+		FROM cgv.seat
+		where theater_code= #{theater_code} and seat_row = #{seat_row}
+	</select>
+</mapper>

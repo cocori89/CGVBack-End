@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 가격표 -->
+<mapper namespace="pricelist">
+	<!-- 클라이언트-->
+	<!-- 관리자  -->
+	<!-- 관리자가 가격 정보 등록 -->
+	<insert id="pricelistInsert" parameterType="kr.co.cgv.domain.PricelistVO">
+		insert into pricelist(pricelist_code,pricelist_kind,pricelist_time,pricelist_date,pricelist_grade,pricelist_price)
+		values(#{pricelist_code},#{pricelist_kind},#{pricelist_time},#{pricelist_date},#{pricelist_grade},#{pricelist_price})
+	</insert>
+	<!-- 관리자가  가격 정보 모두 가져 오기 -->
+	<select id="pricelistSelectAll" resultType="kr.co.cgv.domain.PricelistVO">
+		select *
+		from pricelist
+	</select>
+	<!-- 관리자가 종류에 따라 가격 정보 가져 오기 -->
+	<select id="pricelistSelectKind" parameterType="java.lang.String" resultType="kr.co.cgv.domain.PricelistVO">
+		select *
+		from pricelist
+		where pricelist_kind = #{pricelist_kind}
+	</select>
+	<!-- 관리자가 가격 정보 삭제-->
+	<delete id="pricelistDelete" parameterType="java.lang.String">
+		delete from pricelist
+		where pricelist_code = #{pricelist_code}
+	</delete>
+</mapper>

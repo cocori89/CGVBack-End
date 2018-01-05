@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="site">
+	<!-- 클라이언트 -->
+	<!-- 관리자 -->
+	<!-- 관리자가 사이트 정보 등록 -->
+	<insert id="siteInsert" parameterType="kr.co.cgv.domain.SiteVO">
+		insert into site(site_code,site_phone,site_addr,site_num,site_manager)
+		values(#{site_code},#{site_phone},#{site_addr},#{site_num},#{site_manager})
+	</insert>
+	<!-- 관리자가 모든 코등 정보 가져오기 -->
+	<select id="siteSelectAll" resultType="kr.co.cgv.domain.SiteVO">
+		select *
+		from site
+	</select>
+	<!-- 관리자가 코드를 따라서 정보 가져 오기(클라이언트 공용) -->
+	<select id="siteSelectCode" parameterType="java.lang.String" resultType="kr.co.cgv.domain.SiteVO">
+		select *
+		from site
+		where site_code = #{site_code}
+	</select>
+	<!-- 관리자가 사이트 정보 수정 -->
+	<update id="siteUpdate" parameterType="kr.co.cgv.domain.SiteVO">
+		update site
+		set site_phone = #{site_phone},site_addr = #{site_addr},site_num = #{site_num},site_manager = #{site_manager}
+		where site_code = #{site_code}
+	</update>
+	<delete id="siteDelete" parameterType="java.lang.String">
+		delete from site
+		where site_code = #{site_code}
+	</delete>
+	<!-- 관리자가 사이트 정보를 코드로 검색하기 -->
+	<select id="siteSelectCodeSearch" parameterType="java.lang.String" resultType="kr.co.cgv.domain.SiteVO">
+		select *
+		from site
+		where site_code like concat('%',#{code},'%')
+	</select>
+</mapper>
