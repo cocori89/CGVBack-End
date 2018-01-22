@@ -3,6 +3,7 @@ package kr.co.cgv.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ import kr.co.cgv.domain.NoticeVO;
 import kr.co.cgv.domain.PricelistVO;
 import kr.co.cgv.domain.SiteVO;
 import kr.co.cgv.domain.TheaterVO;
+import kr.co.cgv.domain.TimetableTableVO;
+import kr.co.cgv.domain.TimetableVO;
 import kr.co.cgv.service.EventService;
 import kr.co.cgv.service.MemberService;
 import kr.co.cgv.service.MovieService;
@@ -27,6 +30,7 @@ import kr.co.cgv.service.NoticeService;
 import kr.co.cgv.service.PricelistService;
 import kr.co.cgv.service.SiteService;
 import kr.co.cgv.service.TheaterService;
+import kr.co.cgv.service.TimetableService;
 
 //이곳을 단순 페이지 이동만 최대한 만든다. 
 
@@ -46,6 +50,8 @@ public class AdminController {
 	TheaterService theaterService;
 	@Autowired
 	PricelistService pricelistService;
+	@Autowired
+	TimetableService timetableService;
 	
 	//임시로 index
 	@RequestMapping(value = "admin/adIndex", method =RequestMethod.GET )
@@ -180,18 +186,14 @@ public class AdminController {
 		return "admin/adTheaterUpdate";
 	}
 	
-	//test 영역
-	//test 영역
-	
 	//관리자 상영관 좌석 정보 가져 오기 (도저히 어떻게 할수가 없음)
 	@RequestMapping(value = "admin/adSeat", method = RequestMethod.GET)
 	public String adSeat(@RequestParam("theater_code")String theater_code,Model model){
-		List<String> seat_row = theaterService.theaterSelectSeatRow(theater_code);
-		List<ListtableVO> test = new ArrayList<ListtableVO>();
+		List<String> seat_row = theaterService.theaterSelectSeatRow(theater_code);//줄가져오기
+		List<ListtableVO> test = new ArrayList<ListtableVO>();// 출력 형식 
 		for(String row : seat_row){
 			ListtableVO listtableVO = new ListtableVO();
-			List<String> seat_column = theaterService.theaterSelectSeatColumn(theater_code, row);
-			System.out.println(row);
+			List<String> seat_column = theaterService.theaterSelectSeatColumn(theater_code, row);//칸 가져오기
 			listtableVO.setRow(row);
 			listtableVO.setColumn(seat_column);
 			test.add(listtableVO);
@@ -210,6 +212,45 @@ public class AdminController {
 	@RequestMapping(value = "admin/adPricelistInsert", method = RequestMethod.GET)
 	public String adPricelistInsert(){
 		return "admin/adPricelistInsert";
+	}
+	
+	//관리자 시간표 관리 페이지 이동 (사이트별)
+	@RequestMapping(value = "admin/adTimetable", method = RequestMethod.GET)
+	public String adTimetable(Model model){
+		List<SiteVO> siteVO = siteService.siteSelectAll();
+		model.addAttribute("siteVO", siteVO);
+		return "admin/adTimetable";
+	}
+	//관리자 시간표 관리페이지 이동 (상영관별)
+	@RequestMapping(value = "admin/adTimetableSite", method = RequestMethod.GET)
+	public String adTimetableSite(@RequestParam("site")String site_code,@RequestParam("date")String date, Model model){
+		List<TimetableTableVO> tttVO = new ArrayList<TimetableTableVO>();// 출력 형태
+		List<TheaterVO> theaterVO = theaterService.theaterSelectSite(site_code);//상영관 정보 불러오기 
+			for(TheaterVO theater : theaterVO){
+				TimetableTableVO timetableTableVO = new TimetableTableVO();
+				List<TimetableVO> timetableVO = new ArrayList<TimetableVO>();
+				timetableVO = timetableService.timetableSelectDateTheater(date,theater.getTheater_code());// 날짜와 상영관에 대한 상영시간 정보 불러 오기 
+				timetableTableVO.setTheaterVO(theater);// 영화 정보 넣기
+				timetableTableVO.setTimetableVO(timetableVO);// 상영시간 정보 정보 넣기 
+				tttVO.add(timetableTableVO);//테이블형식 넣기
+			}
+		model.addAttribute("tttVO", tttVO);//있다가 지워야 할듯
+		model.addAttribute("site", site_code);
+		model.addAttribute("date", date);
+		return "admin/adTimetableSite";
+	}
+	//관리자 시간표 등록페이지 이동
+	@RequestMapping(value = "admin/adTimetableInsert", method = RequestMethod.GET)
+	public String adTimetableInsert(@RequestParam("site")String site_code,@RequestParam("date")String date,
+			@RequestParam("theater_code")String theater_code,@RequestParam("theater_num")String theater_num,
+			Model model){
+		List<MovieVO> movieVO = movieService.movieSelectAll();
+		model.addAttribute("site", site_code);
+		model.addAttribute("date", date);
+		model.addAttribute("theater_code", theater_code);
+		model.addAttribute("theater_num", theater_num);
+		model.addAttribute("movieVO", movieVO);
+		return "admin/adTimetableInsert";
 	}
 }
 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 시간표 -->
+<mapper namespace="timetable">
+	<!-- 클라이언트 -->
+	<!-- 상영관에서 보여줄 날짜 가져 오기  -->
+	<select id="timetableSelectDate" parameterType="java.lang.String" resultType="java.lang.String">
+		select timetable_date
+		from timetable
+		where site_code = #{site_code}   
+		group by timetable_date
+	</select>
+	<!-- 사이트 코드와 날짜로 무비코드 뽑기 -->
+	<select id="timetableSelectGetMovieCode" parameterType="kr.co.cgv.domain.TimetableVO" resultType="java.lang.String">
+		select movie_code
+		from timetable
+		where site_code = #{site_code} and timetable_date = #{timetable_date}
+		group by movie_code
+	</select>
+	<!-- 사이트 코드와 날짜 무비코드로 상영관 코드 뽑기 -->
+	<select id="timetableSelectGetTheaterCode" parameterType="kr.co.cgv.domain.TimetableVO" resultType="java.lang.String">
+		select theater_code
+		from timetable
+		where site_code = #{site_code} and timetable_date = #{timetable_date} and movie_code = #{movie_code}
+		group by theater_code
+	</select>
+	<!-- 사이트 코드 날짜, 무비 코드, 상영관 코드를 이용 하여 시작 시간 받아오기  -->
+	<select id="timetableSelectGetStart" parameterType="kr.co.cgv.domain.TimetableVO" resultType="java.lang.String">
+		select timetable_start
+		from timetable
+		where site_code = #{site_code} and timetable_date = #{timetable_date} and movie_code = #{movie_code} and theater_code = #{theater_code}
+		order by timetable_code asc
+	</select>
+	<!-- 관리자 -->
+	<!-- 관리자 시간표 등록 -->
+	<insert id="timetableInsert" parameterType="kr.co.cgv.domain.TimetableVO">
+		insert into timetable(site_code,timetable_date,theater_code,timetable_start,timetable_end,movie_code,movie_title,timetable_order)
+		values(#{site_code},#{timetable_date},#{theater_code},#{timetable_start},#{timetable_end},#{movie_code},#{movie_title},#{timetable_order})
+	</insert>
+	<!-- 관리자 날짜와 상영관 별 상영 시간 정보 가져 오기 -->
+	<select id="timetableSelectDateTheater" parameterType="java.util.Map" resultType="kr.co.cgv.domain.TimetableVO">
+		select *
+		from timetable
+		where timetable_date = #{timetable_date} and theater_code = #{theater_code} 
+	</select>
+</mapper>

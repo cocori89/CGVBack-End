@@ -3,6 +3,18 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<!-- 사이트 코드에서 
+	서울 1
+	경기 2
+	인천 3
+	강원 4
+	대전/충천 5
+	대구 6
+	부산/울산 7
+	경상 8
+	광주/전라제주 9
+ -->
+
 <mapper namespace="site">
 	<!-- 클라이언트 -->
 	<!-- 관리자 -->

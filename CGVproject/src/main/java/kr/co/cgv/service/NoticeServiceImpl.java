@@ -4,10 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.test.context.jdbc.Sql;
 
 import kr.co.cgv.dao.NoticeDao;
 import kr.co.cgv.domain.NoticeVO;

@@ -17,10 +17,12 @@ import kr.co.cgv.domain.EventVO;
 import kr.co.cgv.domain.MemberVO;
 import kr.co.cgv.domain.MovieVO;
 import kr.co.cgv.domain.NoticeVO;
+import kr.co.cgv.domain.SiteVO;
 import kr.co.cgv.service.EventService;
 import kr.co.cgv.service.MemberService;
 import kr.co.cgv.service.MovieService;
 import kr.co.cgv.service.NoticeService;
+import kr.co.cgv.service.SiteService;
 
 // 클라이언트 페이지이동만 있으며 최소한의 기능만 있음 
 
@@ -35,6 +37,8 @@ public class ClientController {
 	private MovieService movieService;
 	@Autowired
 	private EventService eventService;
+	@Autowired
+	private SiteService siteService;
 	
 	// index페이지 이동
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -169,4 +173,13 @@ public class ClientController {
 		model.addAttribute("event", eventVO);
 		return "eventContent";
 	}
+	
+	//영화관 사이트 및 상영관 정보 보기 
+	@RequestMapping(value = "theater", method = RequestMethod.GET)
+	public String theater(Model model) {
+		List<SiteVO> seoulVO = siteService.siteSelectCodeSearch("1");//서울 
+		model.addAttribute("seoulVO", seoulVO);
+		return "theater";
+	}
+	
 }

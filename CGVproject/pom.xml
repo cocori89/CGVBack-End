@@ -16,7 +16,17 @@
 		<apachetiles.version>3.0.5</apachetiles.version>
 	</properties>
 	<dependencies>
-	
+		<dependency>
+   			 <groupId>org.codehaus.jackson</groupId> 
+   			 <artifactId>jackson-mapper-lgpl</artifactId> 
+ 			 <version>1.3.0</version>
+		</dependency>
+		<!-- 제이슨을 사용 하기위한 아이디  -->
+		<dependency>  
+    	    <groupId>org.codehaus.jackson</groupId>
+  			<artifactId>jackson-mapper-asl</artifactId>
+   			<version>1.9.13</version>
+		</dependency> 
 		<!-- 타일즈 사용을 하기 위해  -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>

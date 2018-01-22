@@ -19,6 +19,7 @@ public class SiteController {
 	@Autowired
 	SiteService siteService;
 	/*클라이언트*/
+	
 	/*관리자*/
 	// 관리자가 사이트 정보등록
 	@RequestMapping(value = "admin/adSiteInsert", method = RequestMethod.POST)

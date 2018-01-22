@@ -19,7 +19,7 @@
     <li><a href="adMovie">영화정보 관리</a></li>
     <li><a href="adSite">사이트 관리</a></li>
     <li><a href="adTheater">영화관 정보 관리</a></li>
-    <li><a href="#">상영시간 관리</a></li>
+    <li><a href="adTimetable">상영시간 관리</a></li>
     <li><a href="adPricelist">가격 정보 관리</a></li>
     
 </ol>

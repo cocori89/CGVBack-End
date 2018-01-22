@@ -6,4 +6,7 @@
 <typeInfo handle="=CGVproject/src\/main\/java&lt;kr.co.cgv.service{EventService.java[EventService" modifiers="513" timestamp="1514816511711"/>
 <typeInfo handle="=CGVproject/src\/main\/java&lt;kr.co.cgv.dao{EventDao.java[EventDao" modifiers="513" timestamp="1514816501822"/>
 <typeInfo handle="=CGVproject/src\/main\/java&lt;kr.co.cgv.service{TheaterService.java[TheaterService" modifiers="513" timestamp="1514951535146"/>
+<typeInfo handle="=CGVproject/src\/main\/java&lt;kr.co.cgv.dao{TimetableDao.java[TimetableDao" modifiers="513" timestamp="1516269105271"/>
+<typeInfo handle="=CGVproject/src\/main\/java&lt;kr.co.cgv.service{TimetableService.java[TimetableService" modifiers="513" timestamp="1516272610003"/>
+<typeInfo handle="=CGVproject/C:\/Program Files\/Java\/jre1.8.0_144\/lib\/rt.jar&lt;javax.management.timer(TimerMBean.class[TimerMBean" modifiers="1537" timestamp="1503103917887"/>
 </typeInfoHistroy>

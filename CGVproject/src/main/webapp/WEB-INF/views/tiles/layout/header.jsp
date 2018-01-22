@@ -19,6 +19,7 @@
 	src="${pageContext.request.contextPath}/resources/js/jquery.vticker-min.js"></script>
 </head>
 
+
 <body>
 	<div id="cgvwrap">
 		<header>
@@ -67,7 +68,7 @@
 										<li></li>
 										<li><a href="movie">영화</a></li>
 										<li><a href="#">예매</a></li>
-										<li><a href="#">극장</a></li>
+										<li><a href="theater">극장</a></li>
 										<li><a href="event">이벤트&amp;컬처</a></li>
 										<!--공간확보-->
 										<li></li>

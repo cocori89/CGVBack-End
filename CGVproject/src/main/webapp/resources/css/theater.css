@@ -1,0 +1,215 @@
+.theater-inner {
+	background-image: url(../img/bg_c_bricks.png);
+    height: 446px;
+}
+.sect-city {
+	width: 982px;
+    height: 445px;
+    background-image: url(../img/theater/bg_showtimes_favorite.gif);
+    margin: auto;
+    position: relative;
+}
+.sect-city>ul{
+	display: flex;
+    padding: 63px 53px 0px 53px;
+}
+.sect-city>ul>li {
+	flex: 1;
+    text-align: center;
+    border-top: #727171 2px solid;
+}
+.city {
+    border-bottom: #727171 2px solid;
+	
+}
+.sect-city>ul>li>p {
+    width: 100%;
+}
+.sect-city>ul>li>.city{
+    color: #d1d1d1;
+    padding: 10px 0;
+}
+.sect-city>ul>li a {
+    color: #d1d1d1;
+}
+.area {
+	position: absolute;
+    top: 120px;
+    left: 65px;
+}
+.area>ul{
+    width: 850px;
+    position: absolute;
+    display: flex;
+    flex-flow: row wrap;
+    margin: auto;
+}
+.area>ul>li{
+    font-size: 12px;
+    font-weight: bold;
+    padding:10px 1px;
+    width: 130px;
+}
+/*상영관 사진*/
+.theater {
+	width: 980px;
+    margin: auto;
+    margin-top: 20px;
+}
+.theater-top{
+    background: url(../img/bg_h3_line.jpg) 0 50% repeat-x;
+    text-align: center;
+}
+
+
+.theater-content img{
+	width: 980px;
+    height: 420px;
+}
+.theater-content {
+position: relative;
+}
+.theater-info {
+	position: absolute;
+    color: aliceblue;
+    top: 435px;
+    left: 5px;
+}
+.theater-phone {
+	position: absolute;
+    color: aliceblue;
+    top: 420px;
+    left: 5px;
+}
+.theater-addr {
+	position: absolute;
+    color: aliceblue;
+    top: 405px;
+    left: 5px;
+}
+
+/*시간표*/
+.timetable {
+	width: 980px;
+    margin: auto;
+    border-bottom: 2px #241d1e solid;
+}
+.timetable-top {
+	text-align: center;
+    padding: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    border-bottom: 2px #241d1e solid;
+}
+.timetable-date>ul{
+	display: flex;
+    margin: auto;
+    padding: 10px 50px;;
+}
+.timetable-date>ul>li>a{
+    text-decoration: none;
+    display: flex;
+	color: #717171;
+    padding: 10px;
+    border: 3px #010202 solid;
+    border-radius: 20px;
+}
+
+.date-day{
+    font-size: 30px;
+}
+/*상영관 시간표 부분*/
+.timetable-content{
+    padding: 20px;
+    border-top: #474746 solid 1px;
+    
+}
+.content-info {
+    padding: 10px;
+	font-weight: bold;
+}
+.content-info>span {
+	color: #666666;
+    font-weight: normal;
+    font-size: 0.8em;
+}
+
+.content-time {
+	padding: 10px;
+}
+.time-top{
+    display: flex;
+    font-size: 12px;
+    font-weight: bold;
+}
+.time-top li {
+	padding: 10px;
+}
+.time {
+    display: flex;
+    padding: 10px;
+    flex-flow: row wrap;
+}
+.time ul{
+    width: 72px;
+    height: 46px;
+    border: #cbcabe solid 1px;
+    padding: 1px;
+    text-align: center;
+}
+.time ul li:nth-of-type(1){
+    color: #333333;
+    font-weight: bold;
+    padding-top: 4px;
+}
+.time ul li:nth-of-type(2){
+    font-size: 12px;
+}
+.time a {
+    text-decoration: none;
+}
+/*상영관별 이벤트*/
+.related-event {
+	width: 980px;
+    margin: auto;
+}
+.relarelated-event-top{
+    text-align: center;
+    background: url(../img/bg_h3_line.jpg) 0 50% repeat-x;
+}
+.relarelated-event-top img{
+    background: #fffbef;
+}
+.relarelated-event-content>ul{
+    display: flex;
+}
+.relarelated-event-content>ul ul{
+    text-align: center;
+}
+
+.relarelated-event-content>ul>li{
+    flex: 1;
+}
+.relarelated-event-content>ul>li>a{
+    text-decoration: none;
+}
+
+.relarelated-event-content>ul>li li{
+    color: #333333;
+    font-weight: bold;
+}
+
+.relarelated-event-content>ul>li ul>li:last-of-type{
+    color: #717171;
+    font-weight: normal;
+    font-size: 12px;
+}
+    
+    
+    
+    
+    
+    
+    
+    
+
