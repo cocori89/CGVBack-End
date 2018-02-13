@@ -69,13 +69,6 @@ public class TheaterController {
 			
 			model.addAttribute("site_code", site_code);
 			
-			//log test
-				for(TimetableTableClientVO a : resultList){
-				System.out.println(a.getMovieVO().getMovie_title());	
-				System.out.println(a.getMovieVO());	 
-				System.out.println(a);	 
-				}
-			//log test
 			
 			return "theater";
 		}

@@ -72,4 +72,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by member_id asc
 	</select>
 	
+	<!-- 관리자가 회원등급에 따라 불러 오기(쿠폰배포시 사용 ) 고객의 범위 2~7 -->
+	<select id="memberSelectRatingGetId" resultType="java.lang.String" parameterType="java.lang.String">
+		select member_id
+		from member
+		where member_rating between 2 and #{member_rating}
+	</select>
+	
 </mapper>

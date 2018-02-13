@@ -25,4 +25,7 @@ public interface MemberDao {
 	
 	public List<MemberVO> memberSelectName(String name);// 관리자가 회원 정보 이름으로 검색
 	
+	public List<String> memberSelectRatingGetId(String member_rating);//관리자가 회원등급에 따라 id 불러 오기 (쿠폰 배포용)
+	
+	
 }

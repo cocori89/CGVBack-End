@@ -40,8 +40,8 @@
                         </tr>
                         <tr>
                             <td colspan="2" class="insert-last">
-                                <input type="submit" value="저장">
-                                <input type="button" value="취소" onclick="javascript:location.href='index'">
+                                <input type="submit" value="저장" class="btn btn-primary">
+                                <input type="button" value="취소" onclick="javascript:location.href='index'" class="btn btn-danger">
                             </td>
                         </tr>
                     </table>

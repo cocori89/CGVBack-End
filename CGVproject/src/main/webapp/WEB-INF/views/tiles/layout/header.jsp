@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -40,9 +41,23 @@
 								alt="instarApp"></a></li>
 					</ul>
 					<ul class="main-service-right">
-						<li><a href="mypage">MyCGV</a></li>
+						<!-- 회원이 아닌 경우  -->
+						<c:if test="${rating==null}">
 						<li><a href="memberInsert">회원가입</a></li>
 						<li><a href="login">로그인</a></li>
+						</c:if>
+						<!-- 일반 회원 -->
+						<c:if test="${rating<9 && rating>6}">
+						<li><a href="mypage">MyCGV</a></li>
+						<li><a href="logout">로그아웃</a></li>
+						<li>${member_name}님 안녕하세요</li>
+						</c:if>
+						<!-- 관리자  -->
+						<c:if test="${rating==0||rating==1}">
+						<li><a href="admin/adIndex">관리자 페이지</a></li>
+						<li><a href="logout">로그아웃</a></li>
+						<li>${member_name}관리자 님 안녕하세요</li>
+						</c:if>
 					</ul>
 				</div>
 				<div class="main-nav-outer">
@@ -67,7 +82,7 @@
 										<!--공간확보-->
 										<li></li>
 										<li><a href="movie">영화</a></li>
-										<li><a href="#">예매</a></li>
+										<li><a href="ticket">예매</a></li>
 										<li><a href="theater">극장</a></li>
 										<li><a href="event">이벤트&amp;컬처</a></li>
 										<!--공간확보-->

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 예약 부분 -->
+<mapper namespace="reservation">
+	<!-- 클라이언트 -->
+	<!-- 예약정보 등록 -->
+	<insert id="reservationInsert" parameterType="kr.co.cgv.domain.ReservationVO">
+		insert into reservation(site_code,theater_code,reservation_people,
+								reservation_adult,reservation_teenager,timetable_date,timetable_day,
+								timetable_start,timetable_end,movie_title,theater_kind,theater_num,
+								reservation_seat,reservation_price,movie_grade,member_id,reservation_date)
+		values(#{site_code},#{theater_code},#{reservation_people},
+ 				#{reservation_adult},#{reservation_teenager},#{timetable_date},#{timetable_day},
+ 				#{timetable_start},#{timetable_end},#{movie_title},#{theater_kind},#{theater_num},
+ 				#{reservation_seat},#{reservation_price},#{movie_grade},#{member_id},NOW())
+	</insert>
+	<!-- 등록한 아이디별 예약 정보 확인 -->
+	<select id="reservationSelectId" parameterType="java.lang.String" resultType="kr.co.cgv.domain.ReservationVO">
+		select *
+		from reservation
+		where member_id = #{member_id}
+		order by reservation_code desc
+	</select>
+	<!-- 예약취소하기 -->
+	<update id="reservationDelete" parameterType="java.lang.Integer">
+		update reservation
+		set reservation_cancel = '1'
+		where reservation_code = #{reservation_code}
+	</update>
+	<!-- 영화 평가함 -->
+	<update id="reservationStar" parameterType="java.lang.Integer">
+		update reservation
+		set reservation_star= '1'
+		where reservation_code = #{reservation_code}
+	</update>
+	<!-- 영화평가한 갯수 구하기 (나중에 +1 을 해야함) -->
+	<select id="reservationGetStarCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select count(*) as count
+		from reservation
+		where reservation_star = '1' and movie_title =#{movie_title} 
+	</select>
+	<!-- 관리자 -->
+	
+	
+</mapper>

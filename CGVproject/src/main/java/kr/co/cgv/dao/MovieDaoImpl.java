@@ -23,6 +23,13 @@ public class MovieDaoImpl implements MovieDao {
 	}
 
 
+	// 연제 상영작만 불러 오기
+	@Override
+	public List<MovieVO> movieSelectNow() {
+		return sqlSession.selectList("movie.movieSelectNow");
+	}
+	
+
 	/*관리자---------------------------------*/ 
 	// 관리자가 영화 정보 등록 
 	@Override

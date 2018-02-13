@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.co.cgv.domain.CouponVO;
 import kr.co.cgv.domain.EventVO;
 import kr.co.cgv.domain.ListtableVO;
 import kr.co.cgv.domain.MemberVO;
@@ -23,6 +24,7 @@ import kr.co.cgv.domain.SiteVO;
 import kr.co.cgv.domain.TheaterVO;
 import kr.co.cgv.domain.TimetableTableVO;
 import kr.co.cgv.domain.TimetableVO;
+import kr.co.cgv.service.CouponService;
 import kr.co.cgv.service.EventService;
 import kr.co.cgv.service.MemberService;
 import kr.co.cgv.service.MovieService;
@@ -52,7 +54,8 @@ public class AdminController {
 	PricelistService pricelistService;
 	@Autowired
 	TimetableService timetableService;
-	
+	@Autowired
+	CouponService couponService;
 	//임시로 index
 	@RequestMapping(value = "admin/adIndex", method =RequestMethod.GET )
 	public String adIndex(Model model , HttpSession sesstion){
@@ -252,5 +255,18 @@ public class AdminController {
 		model.addAttribute("movieVO", movieVO);
 		return "admin/adTimetableInsert";
 	}
+	//관리자 쿠폰 페이지 이동
+	@RequestMapping(value = "admin/adCoupon", method = RequestMethod.GET)
+	public String adCoupon(Model model){
+		List<CouponVO> couponVO = couponService.couponGetAllList();
+		model.addAttribute("couponVO", couponVO);
+		return "admin/adCoupon";
+	}
+	//관리자 쿠폰 등록 페이지 이동
+	@RequestMapping(value = "admin/adCouponInsert", method = RequestMethod.GET)
+	public String adCouponInsert(Model model){
+		return "admin/adCouponInsert";
+	}
+	
 }
 

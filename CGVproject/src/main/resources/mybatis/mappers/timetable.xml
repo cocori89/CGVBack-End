@@ -33,6 +33,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where site_code = #{site_code} and timetable_date = #{timetable_date} and movie_code = #{movie_code} and theater_code = #{theater_code}
 		order by timetable_code asc
 	</select>
+	
+	<!-- 영화코드와 지역 번호로 사이트 가져 오기 -->
+	<select id="timtableSelectSite" parameterType="java.util.Map" resultType="java.lang.String">
+		select site_code
+		from timetable
+		where movie_code = #{movie_code} and site_code like concat('%',#{location_num},'%')
+		group by site_code
+	</select>
+	<!-- 영화 코드+상영관 코드로 상영 날짜 받아오기  --><!-- timtableSelectDate와 이름 주의-->
+	<select id="timtableSelectGetDate" parameterType="java.util.Map" resultType="java.lang.String">
+		select timetable_date
+		from timetable
+		where movie_code = #{movie_code} and site_code = #{site_code} 
+		group by timetable_date
+	</select>
+	
+	<!-- 끝나는 시간 가져 오기  -->
+	<select id="timetableSelectGetEnd" parameterType="java.util.Map" resultType="java.lang.String">
+	select timetable_end
+	from timetable
+	where site_code = #{site_code} and theater_code like concat("%",#{theater_code},"%") and timetable_date = #{timetable_date} and timetable_start = #{timetable_start}
+	</select>
+	
+	
 	<!-- 관리자 -->
 	<!-- 관리자 시간표 등록 -->
 	<insert id="timetableInsert" parameterType="kr.co.cgv.domain.TimetableVO">

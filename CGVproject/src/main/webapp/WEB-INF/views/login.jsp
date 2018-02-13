@@ -24,9 +24,8 @@
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <input type="submit" value="로그인" class="btn btn-info">
-                            <input type="button" value="회원가입" class="btn btn-info">
-                            <input type="button" value="뒤로가기" class="btn btn-info">
-                            
+                            <input type="button" value="회원가입" class="btn btn-info" onclick="javascript:location.href='memberInsert'">
+                            <input type="button" value="뒤로가기" class="btn btn-info" onclick="javascript:history.back()">
                         </div>
                     </div>
                 </form>

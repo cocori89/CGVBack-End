@@ -38,7 +38,7 @@
             <div class="sect-cinfo">
                 <div class="policy">
                     <ul>
-                        <li><a href="admin/adIndex">회사소개</a></li>
+                        <li><a href="#">회사소개</a></li>
                         <li><a href="#">IR</a></li>
                         <li><a href="#">채용정보</a></li>
                         <li><a href="#">광고/프로모션문의</a></li>

@@ -1,0 +1,125 @@
+.contant {
+    width: 980px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+}
+.ticket-top {
+	display: flex;
+}
+.ticket-top div{
+    background-color: #333333;
+    border-left: #d4d3c9 solid 2px;
+    color: #d6d6d6;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 0 ; 
+}
+.tt-movie {
+	flex: 4;
+}
+.tt-site {
+	flex: 4;
+}
+.tt-date {
+	flex: 1;
+}
+.tt-time {
+	flex: 4;
+	
+}
+
+/*아래 내용들 */
+.ticket-bottom {
+	display: flex;
+}
+.ticket-bottom li{
+    padding-top: 5px;
+    padding-left: 10px;
+}
+.ticket-bottom>div{
+    border: #d4d3c9 solid 2px;
+    height: 300px;
+    overflow-x: hidden;
+}
+.tb-movie {
+	flex: 4;
+}
+.tb-site{
+	flex: 4;
+    display: flex;
+    width: 80%;
+}
+.tb-site div{
+    flex: 1;
+}
+
+.tb-date {
+	flex: 1;
+    text-align: center;
+}
+.tb-date li{
+    padding-left: 0px;
+}
+.tb-year , .tb-month{
+	color: #666666;
+    font-weight: bold;
+}
+.tb-month{
+    font-size: 40px;    
+}
+.tb-time {
+	flex: 4;
+}
+.time-top{
+    display: flex;
+    color: #333333;
+    font-weight: bold;
+}
+.time-bottom{
+    display: flex;
+    flex-flow: row wrap;
+    
+}
+
+input[type='radio']{
+    display: none;
+}
+input[type='radio']:checked+label{
+    width: 100%;
+    background: #333333;
+    border: #5c5c5c;
+    border-radius: 2px;
+    color: #ffffff;
+}
+.select-go {
+	display: flex;
+    background: #333333;
+    padding: 10px 0;
+}
+.select-info{
+    flex: 11;
+    height: 100%;
+}
+.select-info ul{
+    text-align: center;
+    font-size: ;
+    color:#f5f5f5;
+}
+.select-info ul li{
+    padding: 5px;
+}
+.selet-btn {
+	flex: 2;
+    margin: auto;
+    text-align: center;
+}
+.selet-btn button{
+    width: 80px;
+    height: 80px;
+    font-weight: 900;
+}
+.selet-btn button span{
+    font-size: 30px;
+}

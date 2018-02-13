@@ -1,6 +1,7 @@
 package kr.co.cgv.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,14 @@ public class PricelistDaoImpl implements PricelistDao{
 	@Autowired
 	SqlSession sqlSession;
 	/*클라이언트*/
+
+	//시간대 + 요일 + 등급 => 가격 가져 오기
+	@Override
+	public String priceListSelectGetPrice(Map<String, String> price) {
+		return sqlSession.selectOne("pricelist.priceListSelectGetPrice", price);
+	}
+
+	
 	/*관리자*/
 	//관리자 가격 정보 등록
 	@Override

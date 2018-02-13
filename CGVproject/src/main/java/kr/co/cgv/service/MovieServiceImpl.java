@@ -24,6 +24,12 @@ public class MovieServiceImpl implements MovieService {
 	public List<MovieVO> movieSelectTop6() {
 		return movieDao.movieSelectTop6();
 	}
+	//현재 상영작 정보 가져 오기 
+	@Override
+	public List<MovieVO> movieSelectNow() {
+		return movieDao.movieSelectNow();
+	}
+
 	
 	/*관리자-------------------------------------*/
 	//영화 정보 등록 
@@ -167,5 +173,6 @@ public class MovieServiceImpl implements MovieService {
 		return movieDao.movieDelete(movie_code);
 	}
 
+	
 
 }

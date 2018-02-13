@@ -10,7 +10,7 @@ import kr.co.cgv.domain.MovieVO;
 public interface MovieService {
 	//클라이언트
 	public List<MovieVO> movieSelectTop6();//영화 섬네일 정보 인기 있는 영화 top6 개 불러 오기   
-
+	public List<MovieVO> movieSelectNow();// 현제 상영작만 불러오기 
 	//관리자
 	public int movieInsert(MultipartHttpServletRequest request);// 관리자가 영화 정보 등록
 	public List<MovieVO> movieSelectAll();// 관리자가 영화 정보 리스트 요청 

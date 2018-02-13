@@ -6,6 +6,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 가격표 -->
 <mapper namespace="pricelist">
 	<!-- 클라이언트-->
+	<!-- 시간대 + 요일 + 등급 => 가격 가져 오기  -->
+	<select id="priceListSelectGetPrice" parameterType="java.util.Map" resultType="java.lang.String">
+	select pricelist_price
+	from pricelist
+	where pricelist_time = #{pricelist_time} and pricelist_date = #{pricelist_date} and pricelist_grade = #{pricelist_grade}
+	</select>
 	<!-- 관리자  -->
 	<!-- 관리자가 가격 정보 등록 -->
 	<insert id="pricelistInsert" parameterType="kr.co.cgv.domain.PricelistVO">

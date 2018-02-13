@@ -1,0 +1,107 @@
+.contant{
+    width: 980px;
+    margin: auto;
+}
+.contents{
+    border: #d4d3c9 solid 2px;
+}
+/*제목*/
+.seat-title {
+    background-color: #333333;
+    font-weight: bold;
+	color: #b0b0b0;
+    text-align: center;
+    padding: 5px 0;
+    margin-top: 10px;
+}
+.seat-info {
+	display: flex;
+    background: #f2f0e5;
+}
+.seat-info>div {
+	flex: 1;
+}
+/*인원수 선택*/
+.si-people {
+	padding: 10px;
+}
+.si-people input[type="radio"]{
+	display: none;
+}
+.si-people input[type="radio"]:checked+label{
+    background: #333333;
+    color: #ffffff;
+    
+}
+.si-people label{
+	border: solid 1px #d6d3ce;
+    width: 20px;
+    text-align: center;
+}
+/*영화 선택 정보 */
+.si-movie-info {
+	padding: 10px;
+}
+.si-movie-info-top>ul {
+	display: flex;
+}
+.si-movie-info-bottom {
+	font-size: 20px;
+    font-weight: bold;
+    color: #5a5a79;
+}
+/*좌석 선택 그림*/
+.seat-picture-inner {
+	width: 800px;
+    margin: 20px auto;
+}
+.screen {
+    background: #f4f2ec;
+    color: #8f8f8f;
+    text-align: center;
+    font-weight: bold;
+}
+/*좌석 배치*/
+.seat{
+    margin-top: 50px;
+}
+.srow{
+    display: flex;
+}
+.scol {
+	flex: 1;
+}
+.scol input[type="checkbox"]{
+    display: none;
+}
+.scol input[type="checkbox"]:checked+label {
+    background: #ad1712;
+}
+.scol label:hover{
+    background: #ad1712;
+}
+.scol label{
+    border: solid 2px #67dd8a;
+    background-color: #666666;
+    color: #ffffff;
+    padding: 5px;
+}
+/*결제 창*/
+.select-seat {
+	display: flex;
+    background: #1d1d1c;
+    color: #ffffff;
+}
+.select-btn {
+	flex: 2;
+    margin: auto;
+    text-align: center;
+}
+.select-info {
+	flex: 5;
+    text-align: center;
+}
+.select-seat-info {
+	flex: 5;
+    text-align: center;
+}

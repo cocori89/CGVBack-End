@@ -16,7 +16,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		limit 6
 	</select>
 	
-
+	<!-- 현재 상영 작만 가져 오기 -->
+	<select id="movieSelectNow" resultType="kr.co.cgv.domain.MovieVO">
+		select *
+		from movie
+		where movie_state='상영중'
+	</select>
+	
 	<!-- 관리자  -->
 	<!-- 관리자가 영화정보 입력 -->
 	<insert id="movieInsert" parameterType="kr.co.cgv.domain.MovieVO">
@@ -53,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update movie
 		set movie_title = #{movie_title}, movie_director = #{movie_director}, movie_producer = #{movie_producer}, movie_acter = #{movie_acter},
 			movie_genre =#{movie_genre}, movie_plot = #{movie_plot}, movie_grade = #{movie_grade}, movie_time = #{movie_time},
-			movie_nation = #{movie_nation}, movie_site = #{movie_site}, movie_date = #{movie_date}, movie_poster = #{movie_poster}, movie_state = #{movie_state}
+			movie_nation = #{movie_nation}, movie_site = #{movie_site}, movie_date = #{movie_date}, movie_poster = #{movie_poster}, movie_star = #{movie_star}, movie_state = #{movie_state}
 		where movie_code = #{movie_code}
 	</update>
 	<!-- 관리자가 영화 정보 삭제하기  -->

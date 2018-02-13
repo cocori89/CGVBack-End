@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 쿠폰등록 -->
+<mapper namespace="coupon">
+	<!-- 클라이언트 -->
+	<!-- 관리자 -->
+	<!-- 관리자 쿠폰 등록(관리자 쿠폰 배포) -->
+	<!-- 쿠폰 사용 여부(coupon_use은 0이 미사용(기본값) 1이 사용) -->
+	<insert id="couponInsert" parameterType="kr.co.cgv.domain.CouponVO">
+		insert into coupon(coupon_price,member_id,coupon_end)
+		values(#{coupon_price},#{member_id},#{coupon_end})
+	</insert>
+	
+	<!-- 관리자 쿠폰 정보 리스트-->
+	<select id="couponGetAllList" resultType="kr.co.cgv.domain.CouponVO">
+		select *
+		from coupon
+	</select>
+	<!-- 관리자 쿠폰 아이디 검색 -->
+	<select id="couponIdGetList" parameterType="java.lang.String" resultType="kr.co.cgv.domain.CouponVO">
+		select *
+		from coupon
+		where member_id like concat('%',#{member_id},'%')
+	</select>
+	<!-- 쿠폰 사용여부 변경 -->
+	<update id="couponUseUpdate" parameterType="kr.co.cgv.domain.CouponVO">
+		update coupon
+		set coupon_use = #{coupon_use}
+		where coupon_code =#{coupon_code} 
+	</update>
+</mapper>

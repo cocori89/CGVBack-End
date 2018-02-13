@@ -40,6 +40,27 @@ public class TimetableDaoImpl implements TimetableDao {
 		return sqlSession.selectList("timetable.timetableSelectGetStart",timetableVO);
 	}
 	
+	//영화 영화 코드와 상영 사이트 번호로 상영하는 영화관 찾기 
+	@Override
+	public List<String> timtableSelectGetSite(Map<String, String> site) {
+		return sqlSession.selectList("timetable.timtableSelectSite",site);
+	}
+	// 영화 코드 + 상영관 코드 => 날짜 얻기
+	@Override
+	public List<String> timtableSelectGetDate(Map<String, String> date) {
+		return sqlSession.selectList("timetable.timtableSelectGetDate",date);
+	}
+
+
+	// 사이트 코드 + 상영관 코드 뒷번호 + 날짜 + 시작시간으로 끝나는 시간 가져오기
+	@Override
+	public String timetableSelectGetEnd(Map<String, String> end) {
+		System.out.println(end);
+		
+		return sqlSession.selectOne("timetable.timetableSelectGetEnd", end);
+	}
+	
+	
 	/*관리자*/
 	//관리자 시간표 정보 등록 
 	@Override
@@ -52,4 +73,9 @@ public class TimetableDaoImpl implements TimetableDao {
 	public List<TimetableVO> timetableSelectDateTheater(Map<String, String> dateTheater) {
 		return sqlSession.selectList("timetable.timetableSelectDateTheater",dateTheater);
 	}
+
+
+	
+
+	
 }

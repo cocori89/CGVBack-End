@@ -1,0 +1,101 @@
+.contant {
+	width: 980px;
+    margin: auto;
+    display: flex;
+}
+
+.aside {
+    flex: 1;
+}
+.asidehome{
+    padding: 5px;
+    background: #e71a0f;
+    text-align: center;
+}
+.asidehome a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.aside li a{
+    text-decoration: none;
+    color: #666666;
+    width: 100%;
+}
+.aside li{
+	padding: 5px;
+}
+.aside li:hover {
+    background-color:#e71a0f ;
+}
+.aside li:hover a {
+    color: #ffffff;
+}
+
+.contants{
+    flex: 6;
+}
+.reservation {
+    display: flex;
+}
+.reservation a{
+    text-decoration: none;
+}
+.reimg{
+	flex: 1.5;
+    text-align: center;
+    padding: 10px;
+}
+.reimg img{
+    width: 110px;
+    height: 150px;
+}
+.recontent {
+	flex: 4;
+}
+.recontent div{
+	padding: 10px;
+}
+.rec-title a{
+	color: #222222;
+    font-weight: bold;
+}
+.rec-date a{
+	color: #ff0000;
+    font-weight: bold;
+}
+.rec-info a{
+	color: #666666;
+    font-weight: bold;
+}
+.rec-star a{
+	color: #666666;
+    font-weight: bold;
+}
+.reprice {
+	flex: 3;
+    margin: auto;
+    text-align: center;
+}
+.reprice div{
+    padding: 5px;
+}
+.rec-day span{
+    color: #666666;
+    font-weight: bold; 
+}
+.rec-price span{
+    color: #666666;
+    font-weight: bold; 
+}
+.selspan{
+    color: #666666;
+    font-weight: bold;
+}
+.selstar {
+	width: 80px;
+    display: inline-block;
+    margin: 0;
+}
+.selstar option{
+	margin: 0;
+}

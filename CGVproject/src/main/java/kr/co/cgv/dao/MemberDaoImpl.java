@@ -76,4 +76,10 @@ public class MemberDaoImpl implements MemberDao {
 		return sqlSession.selectList("member.memberSelectName", name);
 	}
 
+	//관리자가 회원등급에 따라 id불러 오기 (쿠폰 배포용)
+	@Override
+	public List<String> memberSelectRatingGetId(String member_rating) {
+		return sqlSession.selectList("member.memberSelectRatingGetId",member_rating);
+	}
+
 }

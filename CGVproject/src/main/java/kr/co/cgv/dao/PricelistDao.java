@@ -1,12 +1,15 @@
 package kr.co.cgv.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.co.cgv.domain.PricelistVO;
 
 //가격 표
 public interface PricelistDao {
 	//클라이언트
+	public String priceListSelectGetPrice(Map<String,String> price);//시간대 + 요일 + 등급 => 가격 가져 오기
+	
 	//관리자 
 	public int pricelistInsert(PricelistVO pricelistVO);//관리자가 가격 정보 등록
 	public List<PricelistVO> pricelistSelectAll();//관리자가 가격 모두 가져오기 

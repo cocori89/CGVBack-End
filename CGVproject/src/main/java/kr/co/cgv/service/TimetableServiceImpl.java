@@ -126,8 +126,28 @@ public class TimetableServiceImpl implements TimetableService {
 		return timetableDao.timetableSelectGetStart(timetableVO);
 	}
 	
+	//영화 영화 코드와 상영 사이트 지역 번호로 상영하는 영화관 찾기
+	@Override
+	public List<String> timtableSelectGetSite(String movie_code, String location_num) {
+		Map<String,String> site = new HashMap<String, String>();
+		site.put("movie_code", movie_code);
+		site.put("location_num", location_num);
+		return timetableDao.timtableSelectGetSite(site);
+	}
 	
-	//무비코드를 받아서 영화정보를 가져온다. (이거는 movie_dao를 이용하면 될듯)
+	//영화 코드 + 상영관 코드 => 날짜 얻기
+	@Override
+	public List<String> timtableSelectGetDate(String movie_code, String site_code) {
+		Map<String,String> date = new HashMap<String, String>();
+		date.put("movie_code", movie_code);
+		date.put("site_code", site_code);
+			
+		return 	timetableDao.timtableSelectGetDate(date);
+	}
+	
+	
+	
+	
 	
 	/*관리자*/
 	
@@ -159,4 +179,8 @@ public class TimetableServiceImpl implements TimetableService {
 		dateTheater.put("theater_code",theater_code);
 		return timetableDao.timetableSelectDateTheater(dateTheater);
 	}
+
+
+
+	
 }

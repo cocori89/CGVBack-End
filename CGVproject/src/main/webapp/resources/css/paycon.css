@@ -1,0 +1,14 @@
+.contant{
+    width: 980px;
+    margin: auto;
+}
+
+.content{
+    padding: 100px;
+    text-align: center;
+}
+.subject {
+	color: #ff0000;
+    font-weight: bold;
+    font-size: 30px;
+}
